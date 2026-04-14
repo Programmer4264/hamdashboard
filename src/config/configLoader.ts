@@ -274,6 +274,16 @@ function loadScriptConfig(
   fallback: () => void
 ): Promise<DashboardConfig> {
   return new Promise((resolve) => {
+    // Validate that the URL is a relative path ending in .js to prevent
+    // loading arbitrary scripts from external origins
+    const isRelative = !url.includes('://') && !url.startsWith('//');
+    const isJs = url.toLowerCase().endsWith('.js');
+    if (!isRelative || !isJs) {
+      console.error(`Refusing to load script from invalid URL: ${url}`);
+      fallback();
+      return;
+    }
+
     const script = document.createElement('script');
     script.src = url;
     script.onload = async () => {
@@ -342,6 +352,15 @@ async function loadJsonConfig(
   url: string,
   fallback: () => void
 ): Promise<DashboardConfig> {
+  // Validate that the URL is a relative path to prevent fetching from
+  // arbitrary origins
+  const isRelative = !url.includes('://') && !url.startsWith('//');
+  if (!isRelative) {
+    console.error(`Refusing to load JSON config from external URL: ${url}`);
+    fallback();
+    return defaultConfig;
+  }
+
   try {
     const response = await fetch(url + '?_=' + Date.now());
     if (!response.ok) {
