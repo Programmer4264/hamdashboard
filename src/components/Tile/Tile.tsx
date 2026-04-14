@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 import { useTileRotation } from '../../hooks/useTileRotation';
-import { ImageModule, VideoModule, WebContentModule } from '../../modules';
+import { ImageModule, VideoModule, WebContentModule, WeatherModule } from '../../modules';
 import { parseSource } from '../../utils/sourceHelpers';
 import type { TileConfig } from '../../config/configTypes';
 
@@ -73,6 +73,14 @@ export function Tile({ config, index, paused, onFullScreen }: TileProps) {
           src={parsed.url}
           darkFrame={parsed.darkFrame}
           scale={parsed.scale}
+        />
+      )}
+
+      {parsed.type === 'weather' && parsed.stationId && parsed.apiKey && (
+        <WeatherModule
+          stationId={parsed.stationId}
+          apiKey={parsed.apiKey}
+          units={parsed.units}
         />
       )}
 

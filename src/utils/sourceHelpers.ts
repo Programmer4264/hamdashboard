@@ -1,5 +1,5 @@
 /**
- * Helpers for parsing tile source URL prefixes (iframe|, iframedark|, invert|, dark|).
+ * Helpers for parsing tile source URL prefixes (iframe|, iframedark|, invert|, dark|, weather|).
  */
 
 const videoExtensions = ['.mp4', '.webm', '.ogg', '.ogv'];
@@ -31,6 +31,10 @@ export function isInvert(src: string): boolean {
   return src.includes('invert|');
 }
 
+export function isWeather(src: string): boolean {
+  return src.startsWith('weather|');
+}
+
 /** Strip known prefixes and return the clean URL */
 export function cleanSource(src: string): string {
   return src
@@ -44,14 +48,34 @@ export function cleanSource(src: string): string {
  * Parse a source string to determine its type and clean URL.
  */
 export interface ParsedSource {
-  type: 'image' | 'video' | 'iframe';
+  type: 'image' | 'video' | 'iframe' | 'weather';
   url: string;
   invert: boolean;
   darkFrame: boolean;
   scale?: number;
+  /** Weather Underground station ID (only for type=weather) */
+  stationId?: string;
+  /** Weather Underground API key (only for type=weather) */
+  apiKey?: string;
+  /** Units for weather: 'e' (imperial), 'm' (metric), 'h' (hybrid) */
+  units?: string;
 }
 
 export function parseSource(src: string): ParsedSource {
+  if (isWeather(src)) {
+    // Format: weather|stationId|apiKey or weather|stationId|apiKey|units
+    const parts = src.split('|');
+    return {
+      type: 'weather',
+      url: '',
+      invert: false,
+      darkFrame: false,
+      stationId: parts[1] || '',
+      apiKey: parts[2] || '',
+      units: parts[3] || 'e',
+    };
+  }
+
   if (isVideo(src)) {
     return { type: 'video', url: src, invert: false, darkFrame: false };
   }
