@@ -94,7 +94,7 @@ var aIMG = [
     "WEBSITE EXAMPLE",
     "iframe|https://globe.adsbexchange.com/?airport=YYZ",
   ],
-  ["VIDEO EXAMPLE", "https://himawari8.nict.go.jp/movie/720/20240611_pifd.mp4"],
+  ["WEATHER (WU)", "weather|KPAUPPER32|YOUR_API_KEY_HERE|e"],
   ["HF PROPAGATION",
     "https://www.hamqsl.com/solar101vhf.php"],
 ];
@@ -103,7 +103,7 @@ var aIMG = [
 var tileDelay = [
   11200,10000,11000,10100,
   10200,10500,10300,10600,
-  30400,60700,60900,10800
+  30400,60700,300000,10800
 ];
 
 // RSS feed items
