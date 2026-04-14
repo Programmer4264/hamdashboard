@@ -1,4 +1,5 @@
 import type { MenuItem } from '../../config/configTypes';
+import { MENU_WIDTH } from '../../utils/layoutConstants';
 
 interface SideMenuProps {
   items: MenuItem[];
@@ -28,10 +29,10 @@ export function SideMenu({ items, side, onMenuAction }: SideMenuProps) {
       onMouseEnter={(e) => {
         const el = e.currentTarget;
         if (isLeft) {
-          el.style.width = '7vw';
+          el.style.width = MENU_WIDTH;
           el.style.left = '0px';
         } else {
-          el.style.width = '7vw';
+          el.style.width = MENU_WIDTH;
           el.style.right = '0px';
         }
       }}
@@ -69,7 +70,7 @@ export function SideMenu({ items, side, onMenuAction }: SideMenuProps) {
                 paddingRight: '15px',
                 paddingTop: '12px',
                 paddingBottom: '8px',
-                width: isLeft ? '5vw' : '7vw',
+                width: isLeft ? '5vw' : MENU_WIDTH,
                 textDecoration: 'none',
                 fontFamily: '"Bebas Neue", sans-serif',
                 fontSize: '1.2vw',
@@ -87,7 +88,7 @@ export function SideMenu({ items, side, onMenuAction }: SideMenuProps) {
                   e.currentTarget.style.left = '0';
                 } else {
                   e.currentTarget.style.right = '0';
-                  e.currentTarget.style.width = '7vw';
+                  e.currentTarget.style.width = MENU_WIDTH;
                 }
               }}
               onMouseLeave={(e) => {

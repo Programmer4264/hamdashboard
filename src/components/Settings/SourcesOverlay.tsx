@@ -1,4 +1,5 @@
 import type { DashboardConfig } from '../../config/configTypes';
+import { MENU_WIDTH } from '../../utils/layoutConstants';
 
 interface SourcesOverlayProps {
   visible: boolean;
@@ -37,8 +38,8 @@ export function SourcesOverlay({
         boxSizing: 'border-box',
         fontFamily: '"Roboto Condensed", sans-serif',
         color: 'white',
-        left: '7vw',
-        right: '7vw',
+        left: MENU_WIDTH,
+        right: MENU_WIDTH,
       }}
     >
       <div

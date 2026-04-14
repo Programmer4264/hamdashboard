@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import type { DashboardConfig } from '../../config/configTypes';
 import { exportToConfigJs, configToStoredSettings } from '../../config/configLoader';
+import { MENU_WIDTH } from '../../utils/layoutConstants';
 
 interface SettingsPageProps {
   visible: boolean;
@@ -203,8 +204,8 @@ export function SettingsPage({
       style={{
         backgroundColor: 'aliceblue',
         fontFamily: 'Arial, sans-serif',
-        left: '7vw',
-        right: '7vw',
+        left: MENU_WIDTH,
+        right: MENU_WIDTH,
       }}
     >
       {/* Fixed header */}
@@ -213,8 +214,8 @@ export function SettingsPage({
         style={{
           backgroundColor: 'cadetblue',
           boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
-          left: '7vw',
-          right: '7vw',
+          left: MENU_WIDTH,
+          right: MENU_WIDTH,
         }}
       >
         <button onClick={handleSave} className="settings-btn">
