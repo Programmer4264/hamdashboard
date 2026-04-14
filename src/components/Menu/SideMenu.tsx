@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import type { MenuItem } from '../../config/configTypes';
 
 interface SideMenuProps {
@@ -7,12 +8,14 @@ interface SideMenuProps {
 }
 
 export function SideMenu({ items, side, onMenuAction }: SideMenuProps) {
+  const [open, setOpen] = useState(false);
   const filteredItems = items.filter((item) => item.side === side);
 
   if (filteredItems.length === 0) return null;
 
   const isLeft = side === 'L';
   const menuId = isLeft ? 'myMenuL' : 'myMenuR';
+  const dropdownId = `${menuId}-dropdown`;
 
   return (
     <div
@@ -22,11 +25,24 @@ export function SideMenu({ items, side, onMenuAction }: SideMenuProps) {
         top: 6,
         ...(isLeft ? { left: 6 } : { right: 6 }),
       }}
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
     >
       {/* Hamburger trigger */}
       <button
         className="hamburger-trigger"
         aria-label={isLeft ? 'Left menu' : 'Right menu'}
+        aria-expanded={open}
+        aria-controls={dropdownId}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            setOpen((v) => !v);
+          } else if (e.key === 'Escape') {
+            setOpen(false);
+          }
+        }}
+        onClick={() => setOpen((v) => !v)}
         style={{
           display: 'flex',
           alignItems: 'center',
@@ -43,7 +59,7 @@ export function SideMenu({ items, side, onMenuAction }: SideMenuProps) {
           ...(isLeft ? {} : { marginLeft: 'auto' }),
         }}
       >
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
           <rect y="3" width="20" height="2" rx="1" fill="currentColor" />
           <rect y="9" width="20" height="2" rx="1" fill="currentColor" />
           <rect y="15" width="20" height="2" rx="1" fill="currentColor" />
@@ -52,6 +68,8 @@ export function SideMenu({ items, side, onMenuAction }: SideMenuProps) {
 
       {/* Dropdown menu */}
       <div
+        id={dropdownId}
+        role="menu"
         className="hamburger-dropdown"
         style={{
           position: 'absolute',
@@ -66,9 +84,9 @@ export function SideMenu({ items, side, onMenuAction }: SideMenuProps) {
           display: 'flex',
           flexDirection: 'column',
           gap: 2,
-          opacity: 0,
-          pointerEvents: 'none',
-          transform: 'translateY(-8px)',
+          opacity: open ? 1 : 0,
+          pointerEvents: open ? 'auto' : 'none',
+          transform: open ? 'translateY(0)' : 'translateY(-8px)',
           transition: 'opacity 0.2s, transform 0.2s',
         }}
       >
@@ -85,6 +103,8 @@ export function SideMenu({ items, side, onMenuAction }: SideMenuProps) {
             <a
               key={`${side}-${i}`}
               href="#"
+              role="menuitem"
+              tabIndex={open ? 0 : -1}
               className={`menu-link ${iconClass}`}
               style={{
                 display: 'flex',
@@ -107,6 +127,17 @@ export function SideMenu({ items, side, onMenuAction }: SideMenuProps) {
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = 'transparent';
+              }}
+              onFocus={(e) => {
+                e.currentTarget.style.background = 'hsl(210deg 15% 22%)';
+              }}
+              onBlur={(e) => {
+                e.currentTarget.style.background = 'transparent';
+              }}
+              onKeyDown={(e) => {
+                if (e.key === 'Escape') {
+                  setOpen(false);
+                }
               }}
               onClick={(e) => {
                 e.preventDefault();
