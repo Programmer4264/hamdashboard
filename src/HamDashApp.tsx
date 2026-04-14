@@ -254,8 +254,25 @@ function App() {
 
   // Handle full-screen view
   const handleFullScreen = useCallback((index: number) => {
-    setFullScreenIndex(index);
-  }, []);
+    if (!config) return;
+    const tile = config.tiles[index];
+    if (!tile) return;
+    const source = tile.sources[0];
+    const parsed = parseSource(source);
+    if (parsed.type === 'weather') {
+      // Open the weather module as a full overlay (same as menu click)
+      setMenuOverlayItem({
+        color: '2196F3',
+        text: tile.titles[0] || 'Weather',
+        url: source,
+        scale: 1,
+        side: 'L',
+        type: 'user',
+      });
+    } else {
+      setFullScreenIndex(index);
+    }
+  }, [config]);
 
   const handleCloseFullScreen = useCallback(() => {
     setFullScreenIndex(null);

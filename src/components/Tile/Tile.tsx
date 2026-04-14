@@ -85,6 +85,15 @@ export function Tile({ config, index, paused, onFullScreen }: TileProps) {
         />
       )}
 
+      {/* Click overlay for weather tiles — enables double-click to open full view */}
+      {parsed.type === 'weather' && (
+        <div
+          className="absolute inset-0 bg-transparent cursor-pointer z-[1]"
+          onContextMenu={handleContextMenu}
+          onDoubleClick={handleDoubleClick}
+        />
+      )}
+
       {/* Click overlay for video/iframe tiles */}
       {showOverlay && (
         <div
