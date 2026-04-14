@@ -202,383 +202,452 @@ export function SettingsPage({
     <div
       className="fixed inset-0 z-[1] overflow-y-auto"
       style={{
-        backgroundColor: 'aliceblue',
-        fontFamily: 'Arial, sans-serif',
+        backgroundColor: 'hsl(210deg 15% 12%)',
+        fontFamily: '"Inter", "Segoe UI", system-ui, sans-serif',
         left: MENU_WIDTH,
         right: MENU_WIDTH,
+        color: '#e2e8f0',
       }}
     >
       {/* Fixed header */}
       <div
-        className="fixed top-0 text-center p-2 z-[2]"
+        className="fixed top-0 z-[2] flex items-center justify-between px-6 py-3"
         style={{
-          backgroundColor: 'cadetblue',
-          boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
+          backgroundColor: 'hsl(210deg 15% 16%)',
+          borderBottom: '1px solid hsl(210deg 10% 22%)',
           left: MENU_WIDTH,
           right: MENU_WIDTH,
         }}
       >
-        <button onClick={handleSave} className="settings-btn">
-          Save Settings to Local Storage
-        </button>
-        <button onClick={handleReset} className="settings-btn">
-          Delete Settings from Local Storage
-        </button>
-        <button onClick={handleBackupJson} className="settings-btn">
-          Backup Settings to JSON file
-        </button>
-        <button onClick={handleRestoreJson} className="settings-btn">
-          Restore Settings from JSON file
-        </button>
-        <button onClick={handleImportJs} className="settings-btn">
-          Import from config.js file
-        </button>
-        <button onClick={handleExportJs} className="settings-btn">
-          Export to config.js file
-        </button>
-        <button onClick={onClose} className="settings-btn bg-red-200">
-          Close Settings
-        </button>
+        <div className="flex items-center gap-3">
+          <span style={{ fontSize: '18px', fontWeight: 600 }}>⚙ Dashboard Setup</span>
+        </div>
+        <div className="flex items-center gap-2 flex-wrap">
+          <button onClick={handleSave} className="settings-btn settings-btn-primary">
+            💾 Save to Storage
+          </button>
+          <button onClick={handleReset} className="settings-btn settings-btn-danger">
+            🗑 Delete Storage
+          </button>
+          <button onClick={handleBackupJson} className="settings-btn">
+            📦 Backup JSON
+          </button>
+          <button onClick={handleRestoreJson} className="settings-btn">
+            📂 Restore JSON
+          </button>
+          <button onClick={handleImportJs} className="settings-btn">
+            📥 Import .js
+          </button>
+          <button onClick={handleExportJs} className="settings-btn">
+            📤 Export .js
+          </button>
+          <button onClick={onClose} className="settings-btn settings-btn-danger">
+            ✕ Close
+          </button>
+        </div>
       </div>
 
       {/* Content */}
-      <div className="mt-14 p-4 text-black">
-        <h1 className="text-2xl font-bold mb-4">Dashboard Setup</h1>
+      <div className="pt-16 p-6" style={{ maxWidth: 1200, margin: '0 auto' }}>
 
-        {/* Settings Source */}
-        <div className="mb-4 flex items-center gap-4">
-          <label className="font-bold">Select Settings Source:</label>
-          <label className="flex items-center gap-1">
-            <input
-              type="radio"
-              name="settingsSource"
-              value="localStorage"
-              checked={localConfig.settingsSource === 'localStorage'}
-              onChange={() => updateConfig({ settingsSource: 'localStorage' })}
-            />
-            Browser Local Storage
-          </label>
-          <label className="flex items-center gap-1">
-            <input
-              type="radio"
-              name="settingsSource"
-              value="file"
-              checked={localConfig.settingsSource === 'file'}
-              onChange={() => updateConfig({ settingsSource: 'file' })}
-            />
-            config.js file
-          </label>
-        </div>
+        {/* General Settings Card */}
+        <div
+          className="mb-6 rounded-lg p-5"
+          style={{ backgroundColor: 'hsl(210deg 15% 16%)', border: '1px solid hsl(210deg 10% 22%)' }}
+        >
+          <h2 className="text-base font-semibold mb-4" style={{ color: 'hsl(200deg 80% 65%)' }}>
+            General Settings
+          </h2>
 
-        {/* Top Bar Text */}
-        <div className="mb-4">
-          <label className="font-bold block mb-1">Top Bar Center Text:</label>
-          <input
-            type="text"
-            className="w-[90%] p-1 border border-gray-300"
-            value={localConfig.topBarCenterText}
-            onChange={(e) =>
-              updateConfig({ topBarCenterText: e.target.value })
-            }
-          />
-        </div>
+          {/* Settings Source */}
+          <div className="mb-4 flex items-center gap-6">
+            <label className="text-sm font-medium" style={{ color: 'hsl(210deg 10% 65%)' }}>
+              Settings Source:
+            </label>
+            <label className="flex items-center gap-2 text-sm cursor-pointer">
+              <input
+                type="radio"
+                name="settingsSource"
+                value="localStorage"
+                checked={localConfig.settingsSource === 'localStorage'}
+                onChange={() => updateConfig({ settingsSource: 'localStorage' })}
+                style={{ accentColor: 'hsl(200deg 80% 50%)' }}
+              />
+              Browser Local Storage
+            </label>
+            <label className="flex items-center gap-2 text-sm cursor-pointer">
+              <input
+                type="radio"
+                name="settingsSource"
+                value="file"
+                checked={localConfig.settingsSource === 'file'}
+                onChange={() => updateConfig({ settingsSource: 'file' })}
+                style={{ accentColor: 'hsl(200deg 80% 50%)' }}
+              />
+              config.js file
+            </label>
+          </div>
 
-        {/* Grid Layout */}
-        <div className="mb-4 flex items-center gap-4">
-          <label className="font-bold">Grid Layout:</label>
-          <label>
-            Columns:
+          {/* Top Bar Text */}
+          <div className="mb-4">
+            <label className="text-sm font-medium block mb-1" style={{ color: 'hsl(210deg 10% 65%)' }}>
+              Top Bar Center Text:
+            </label>
             <input
-              type="number"
-              className="w-20 p-1 ml-1 border border-gray-300"
-              min={1}
-              value={localConfig.layoutCols}
+              type="text"
+              className="settings-input w-full"
+              value={localConfig.topBarCenterText}
               onChange={(e) =>
-                updateConfig({ layoutCols: parseInt(e.target.value, 10) || 1 })
+                updateConfig({ topBarCenterText: e.target.value })
               }
             />
-          </label>
-          <label>
-            Rows:
-            <input
-              type="number"
-              className="w-20 p-1 ml-1 border border-gray-300"
-              min={1}
-              value={localConfig.layoutRows}
-              onChange={(e) =>
-                updateConfig({ layoutRows: parseInt(e.target.value, 10) || 1 })
-              }
-            />
-          </label>
+          </div>
+
+          {/* Grid Layout */}
+          <div className="flex items-center gap-6">
+            <label className="text-sm font-medium" style={{ color: 'hsl(210deg 10% 65%)' }}>
+              Grid Layout:
+            </label>
+            <label className="flex items-center gap-2 text-sm">
+              Columns
+              <input
+                type="number"
+                className="settings-input w-20"
+                min={1}
+                value={localConfig.layoutCols}
+                onChange={(e) =>
+                  updateConfig({ layoutCols: parseInt(e.target.value, 10) || 1 })
+                }
+              />
+            </label>
+            <label className="flex items-center gap-2 text-sm">
+              Rows
+              <input
+                type="number"
+                className="settings-input w-20"
+                min={1}
+                value={localConfig.layoutRows}
+                onChange={(e) =>
+                  updateConfig({ layoutRows: parseInt(e.target.value, 10) || 1 })
+                }
+              />
+            </label>
+          </div>
         </div>
 
-        {/* Menu Items */}
-        <div className="mb-4">
-          <label className="font-bold block mb-2">Menu Items:</label>
-          <table className="w-full border-collapse mb-2">
-            <thead>
-              <tr>
-                <th className="border border-gray-300 p-2 bg-gray-100">Color</th>
-                <th className="border border-gray-300 p-2 bg-gray-100">Text</th>
-                <th className="border border-gray-300 p-2 bg-gray-100">URL</th>
-                <th className="border border-gray-300 p-2 bg-gray-100">Scale</th>
-                <th className="border border-gray-300 p-2 bg-gray-100">Side</th>
-                <th className="border border-gray-300 p-2 bg-gray-100">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {localConfig.menuItems
-                .filter((m) => m.type !== 'core')
-                .map((item, i) => {
-                  const globalIdx = localConfig.menuItems.indexOf(item);
-                  return (
-                    <tr key={i}>
-                      <td className="border border-gray-300 p-1">
-                        <input
-                          type="color"
-                          value={`#${item.color}`}
-                          onChange={(e) => {
-                            const items = [...localConfig.menuItems];
-                            items[globalIdx] = {
-                              ...items[globalIdx],
-                              color: e.target.value.replace('#', ''),
-                            };
-                            updateConfig({ menuItems: items });
-                          }}
-                        />
-                      </td>
-                      <td className="border border-gray-300 p-1">
-                        <input
-                          type="text"
-                          className="w-full p-1"
-                          value={item.text}
-                          onChange={(e) => {
-                            const items = [...localConfig.menuItems];
-                            items[globalIdx] = {
-                              ...items[globalIdx],
-                              text: e.target.value,
-                            };
-                            updateConfig({ menuItems: items });
-                          }}
-                        />
-                      </td>
-                      <td className="border border-gray-300 p-1">
-                        <input
-                          type="text"
-                          className="w-full p-1"
-                          value={item.url}
-                          onChange={(e) => {
-                            const items = [...localConfig.menuItems];
-                            items[globalIdx] = {
-                              ...items[globalIdx],
-                              url: e.target.value,
-                            };
-                            updateConfig({ menuItems: items });
-                          }}
-                        />
-                      </td>
-                      <td className="border border-gray-300 p-1">
-                        <input
-                          type="number"
-                          className="w-16 p-1"
-                          value={item.scale}
-                          onChange={(e) => {
-                            const items = [...localConfig.menuItems];
-                            items[globalIdx] = {
-                              ...items[globalIdx],
-                              scale: parseFloat(e.target.value) || 1,
-                            };
-                            updateConfig({ menuItems: items });
-                          }}
-                        />
-                      </td>
-                      <td className="border border-gray-300 p-1">
-                        <select
-                          className="p-1"
-                          value={item.side}
-                          onChange={(e) => {
-                            const items = [...localConfig.menuItems];
-                            items[globalIdx] = {
-                              ...items[globalIdx],
-                              side: e.target.value as 'L' | 'R',
-                            };
-                            updateConfig({ menuItems: items });
-                          }}
-                        >
-                          <option value="L">Left</option>
-                          <option value="R">Right</option>
-                        </select>
-                      </td>
-                      <td className="border border-gray-300 p-1">
-                        <button
-                          onClick={() => removeMenuItem(globalIdx)}
-                          className="settings-btn"
-                        >
-                          Delete
-                        </button>
-                      </td>
-                    </tr>
-                  );
-                })}
-            </tbody>
-          </table>
-          <button onClick={addMenuItem} className="settings-btn">
-            Add Menu Item
-          </button>
-        </div>
-
-        {/* Dashboard Items */}
-        <div className="mb-4">
-          <label className="font-bold block mb-2">Dashboard Items:</label>
-          <table className="w-full border-collapse mb-2">
-            <thead>
-              <tr>
-                <th className="border border-gray-300 p-2 bg-gray-100">
-                  Tile Title
-                </th>
-                <th className="border border-gray-300 p-2 bg-gray-100">
-                  Tile URLs
-                </th>
-                <th className="border border-gray-300 p-2 bg-gray-100">
-                  URL Rotation Interval (ms)
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {localConfig.tiles.map((tile, i) => (
-                <tr key={i}>
-                  <td className="border border-gray-300 p-1">
-                    <input
-                      type="text"
-                      className="w-full p-1"
-                      value={tile.titles.join(', ')}
-                      onChange={(e) =>
-                        updateTile(
-                          i,
-                          'title',
-                          e.target.value
-                        )
-                      }
-                    />
-                  </td>
-                  <td className="border border-gray-300 p-1">
-                    {tile.sources.map((src, j) => (
-                      <div key={j} className="flex items-center gap-1 mb-1">
-                        <input
-                          type="text"
-                          className="flex-1 p-1"
-                          value={src}
-                          onChange={(e) => {
-                            const sources = [...tile.sources];
-                            sources[j] = e.target.value;
-                            updateTile(i, 'sources', sources);
-                          }}
-                        />
-                        <button
-                          onClick={() => {
-                            const sources = tile.sources.filter(
-                              (_, k) => k !== j
-                            );
-                            updateTile(i, 'sources', sources);
-                          }}
-                          className="settings-btn text-xs"
-                        >
-                          ✕
-                        </button>
-                      </div>
-                    ))}
-                    <button
-                      onClick={() => {
-                        const sources = [...tile.sources, ''];
-                        updateTile(i, 'sources', sources);
-                      }}
-                      className="settings-btn text-xs"
+        {/* Menu Items Card */}
+        <div
+          className="mb-6 rounded-lg p-5"
+          style={{ backgroundColor: 'hsl(210deg 15% 16%)', border: '1px solid hsl(210deg 10% 22%)' }}
+        >
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-base font-semibold" style={{ color: 'hsl(200deg 80% 65%)' }}>
+              Menu Items
+            </h2>
+            <button onClick={addMenuItem} className="settings-btn settings-btn-primary">
+              + Add Item
+            </button>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full" style={{ borderCollapse: 'separate', borderSpacing: '0 2px' }}>
+              <thead>
+                <tr>
+                  {['Color', 'Text', 'URL', 'Scale', 'Side', ''].map((h) => (
+                    <th
+                      key={h}
+                      className="text-left text-xs font-medium px-3 py-2"
+                      style={{ color: 'hsl(210deg 10% 50%)' }}
                     >
-                      Add URL
-                    </button>
-                  </td>
-                  <td className="border border-gray-300 p-1">
-                    <input
-                      type="number"
-                      className="w-24 p-1"
-                      value={tile.rotationInterval}
-                      onChange={(e) =>
-                        updateTile(
-                          i,
-                          'rotationInterval',
-                          parseInt(e.target.value, 10) || 30000
-                        )
-                      }
-                    />
-                  </td>
+                      {h}
+                    </th>
+                  ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {localConfig.menuItems
+                  .filter((m) => m.type !== 'core')
+                  .map((item, i) => {
+                    const globalIdx = localConfig.menuItems.indexOf(item);
+                    return (
+                      <tr
+                        key={i}
+                        style={{
+                          backgroundColor: 'hsl(210deg 15% 19%)',
+                          borderRadius: 6,
+                        }}
+                      >
+                        <td className="px-3 py-2 rounded-l-md">
+                          <input
+                            type="color"
+                            value={`#${item.color}`}
+                            className="w-8 h-8 rounded cursor-pointer border-0"
+                            style={{ backgroundColor: 'transparent' }}
+                            onChange={(e) => {
+                              const items = [...localConfig.menuItems];
+                              items[globalIdx] = {
+                                ...items[globalIdx],
+                                color: e.target.value.replace('#', ''),
+                              };
+                              updateConfig({ menuItems: items });
+                            }}
+                          />
+                        </td>
+                        <td className="px-3 py-2">
+                          <input
+                            type="text"
+                            className="settings-input w-full"
+                            placeholder="Menu text"
+                            value={item.text}
+                            onChange={(e) => {
+                              const items = [...localConfig.menuItems];
+                              items[globalIdx] = {
+                                ...items[globalIdx],
+                                text: e.target.value,
+                              };
+                              updateConfig({ menuItems: items });
+                            }}
+                          />
+                        </td>
+                        <td className="px-3 py-2">
+                          <input
+                            type="text"
+                            className="settings-input w-full"
+                            placeholder="https://..."
+                            value={item.url}
+                            onChange={(e) => {
+                              const items = [...localConfig.menuItems];
+                              items[globalIdx] = {
+                                ...items[globalIdx],
+                                url: e.target.value,
+                              };
+                              updateConfig({ menuItems: items });
+                            }}
+                          />
+                        </td>
+                        <td className="px-3 py-2">
+                          <input
+                            type="number"
+                            className="settings-input w-16"
+                            value={item.scale}
+                            onChange={(e) => {
+                              const items = [...localConfig.menuItems];
+                              items[globalIdx] = {
+                                ...items[globalIdx],
+                                scale: parseFloat(e.target.value) || 1,
+                              };
+                              updateConfig({ menuItems: items });
+                            }}
+                          />
+                        </td>
+                        <td className="px-3 py-2">
+                          <select
+                            className="settings-input"
+                            value={item.side}
+                            onChange={(e) => {
+                              const items = [...localConfig.menuItems];
+                              items[globalIdx] = {
+                                ...items[globalIdx],
+                                side: e.target.value as 'L' | 'R',
+                              };
+                              updateConfig({ menuItems: items });
+                            }}
+                          >
+                            <option value="L">Left</option>
+                            <option value="R">Right</option>
+                          </select>
+                        </td>
+                        <td className="px-3 py-2 rounded-r-md">
+                          <button
+                            onClick={() => removeMenuItem(globalIdx)}
+                            className="settings-btn settings-btn-danger"
+                            title="Delete"
+                          >
+                            🗑
+                          </button>
+                        </td>
+                      </tr>
+                    );
+                  })}
+              </tbody>
+            </table>
+          </div>
         </div>
 
-        {/* Feed Items */}
-        <div className="mb-4">
-          <label className="font-bold block mb-2">Feed Items:</label>
-          <table className="w-full border-collapse mb-2">
-            <thead>
-              <tr>
-                <th className="border border-gray-300 p-2 bg-gray-100">
-                  Feed URL
-                </th>
-                <th className="border border-gray-300 p-2 bg-gray-100">
-                  Refresh Interval (minutes)
-                </th>
-                <th className="border border-gray-300 p-2 bg-gray-100">
-                  Actions
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {localConfig.rssFeeds.map((feed, i) => (
-                <tr key={i}>
-                  <td className="border border-gray-300 p-1">
-                    <input
-                      type="text"
-                      className="w-full p-1"
-                      value={feed[0]}
-                      onChange={(e) => {
-                        const feeds = [...localConfig.rssFeeds];
-                        feeds[i] = [e.target.value, feeds[i][1]];
-                        updateConfig({ rssFeeds: feeds });
-                      }}
-                    />
-                  </td>
-                  <td className="border border-gray-300 p-1">
-                    <input
-                      type="number"
-                      className="w-24 p-1"
-                      value={feed[1]}
-                      onChange={(e) => {
-                        const feeds = [...localConfig.rssFeeds];
-                        feeds[i] = [
-                          feeds[i][0],
-                          parseInt(e.target.value, 10) || 60,
-                        ];
-                        updateConfig({ rssFeeds: feeds });
-                      }}
-                    />
-                  </td>
-                  <td className="border border-gray-300 p-1">
-                    <button
-                      onClick={() => removeFeed(i)}
-                      className="settings-btn"
+        {/* Dashboard Items Card */}
+        <div
+          className="mb-6 rounded-lg p-5"
+          style={{ backgroundColor: 'hsl(210deg 15% 16%)', border: '1px solid hsl(210deg 10% 22%)' }}
+        >
+          <h2 className="text-base font-semibold mb-4" style={{ color: 'hsl(200deg 80% 65%)' }}>
+            Dashboard Tiles
+          </h2>
+          <div className="overflow-x-auto">
+            <table className="w-full" style={{ borderCollapse: 'separate', borderSpacing: '0 2px' }}>
+              <thead>
+                <tr>
+                  {['Title', 'URLs', 'Rotation (ms)'].map((h) => (
+                    <th
+                      key={h}
+                      className="text-left text-xs font-medium px-3 py-2"
+                      style={{ color: 'hsl(210deg 10% 50%)' }}
                     >
-                      Delete
-                    </button>
-                  </td>
+                      {h}
+                    </th>
+                  ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>
-          <button onClick={addFeed} className="settings-btn">
-            Add Feed Item
-          </button>
+              </thead>
+              <tbody>
+                {localConfig.tiles.map((tile, i) => (
+                  <tr
+                    key={i}
+                    style={{ backgroundColor: 'hsl(210deg 15% 19%)' }}
+                  >
+                    <td className="px-3 py-2 rounded-l-md align-top">
+                      <input
+                        type="text"
+                        className="settings-input w-full"
+                        placeholder="Tile title"
+                        value={tile.titles.join(', ')}
+                        onChange={(e) =>
+                          updateTile(i, 'title', e.target.value)
+                        }
+                      />
+                    </td>
+                    <td className="px-3 py-2 align-top">
+                      {tile.sources.map((src, j) => (
+                        <div key={j} className="flex items-center gap-2 mb-1">
+                          <input
+                            type="text"
+                            className="settings-input flex-1"
+                            placeholder="https://..."
+                            value={src}
+                            onChange={(e) => {
+                              const sources = [...tile.sources];
+                              sources[j] = e.target.value;
+                              updateTile(i, 'sources', sources);
+                            }}
+                          />
+                          <button
+                            onClick={() => {
+                              const sources = tile.sources.filter(
+                                (_, k) => k !== j
+                              );
+                              updateTile(i, 'sources', sources);
+                            }}
+                            className="settings-btn settings-btn-danger"
+                            style={{ padding: '4px 8px', fontSize: 11 }}
+                          >
+                            ✕
+                          </button>
+                        </div>
+                      ))}
+                      <button
+                        onClick={() => {
+                          const sources = [...tile.sources, ''];
+                          updateTile(i, 'sources', sources);
+                        }}
+                        className="settings-btn"
+                        style={{ fontSize: 11, marginTop: 2 }}
+                      >
+                        + Add URL
+                      </button>
+                    </td>
+                    <td className="px-3 py-2 rounded-r-md align-top">
+                      <input
+                        type="number"
+                        className="settings-input w-24"
+                        value={tile.rotationInterval}
+                        onChange={(e) =>
+                          updateTile(
+                            i,
+                            'rotationInterval',
+                            parseInt(e.target.value, 10) || 30000
+                          )
+                        }
+                      />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* Feed Items Card */}
+        <div
+          className="mb-6 rounded-lg p-5"
+          style={{ backgroundColor: 'hsl(210deg 15% 16%)', border: '1px solid hsl(210deg 10% 22%)' }}
+        >
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-base font-semibold" style={{ color: 'hsl(200deg 80% 65%)' }}>
+              RSS Feeds
+            </h2>
+            <button onClick={addFeed} className="settings-btn settings-btn-primary">
+              + Add Feed
+            </button>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full" style={{ borderCollapse: 'separate', borderSpacing: '0 2px' }}>
+              <thead>
+                <tr>
+                  {['Feed URL', 'Refresh (min)', ''].map((h) => (
+                    <th
+                      key={h}
+                      className="text-left text-xs font-medium px-3 py-2"
+                      style={{ color: 'hsl(210deg 10% 50%)' }}
+                    >
+                      {h}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {localConfig.rssFeeds.map((feed, i) => (
+                  <tr
+                    key={i}
+                    style={{ backgroundColor: 'hsl(210deg 15% 19%)' }}
+                  >
+                    <td className="px-3 py-2 rounded-l-md">
+                      <input
+                        type="text"
+                        className="settings-input w-full"
+                        placeholder="https://..."
+                        value={feed[0]}
+                        onChange={(e) => {
+                          const feeds = [...localConfig.rssFeeds];
+                          feeds[i] = [e.target.value, feeds[i][1]];
+                          updateConfig({ rssFeeds: feeds });
+                        }}
+                      />
+                    </td>
+                    <td className="px-3 py-2">
+                      <input
+                        type="number"
+                        className="settings-input w-24"
+                        value={feed[1]}
+                        onChange={(e) => {
+                          const feeds = [...localConfig.rssFeeds];
+                          feeds[i] = [
+                            feeds[i][0],
+                            parseInt(e.target.value, 10) || 60,
+                          ];
+                          updateConfig({ rssFeeds: feeds });
+                        }}
+                      />
+                    </td>
+                    <td className="px-3 py-2 rounded-r-md">
+                      <button
+                        onClick={() => removeFeed(i)}
+                        className="settings-btn settings-btn-danger"
+                      >
+                        🗑 Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

@@ -54,20 +54,18 @@ html {
 
 /* Settings page button styles */
 .settings-btn {
-  padding: 0 11px;
-  margin: 0 4px 7px 0;
+  padding: 6px 16px;
+  margin: 0 4px 4px 0;
   cursor: pointer;
-  background-image: linear-gradient(#f7f8fa, #e7e9ec);
-  border-color: #adb1b8 #a2a6ac #8d9096;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 3px;
-  box-shadow: rgba(255, 255, 255, 0.6) 0 1px 0 inset;
+  background: hsl(210deg 15% 28%);
+  border: 1px solid hsl(210deg 10% 38%);
+  border-radius: 6px;
   box-sizing: border-box;
-  color: #0f1111;
-  font-family: "Amazon Ember", Arial, sans-serif;
+  color: #e2e8f0;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
   font-size: 13px;
-  height: 23px;
+  font-weight: 500;
+  line-height: 1.4;
   outline: 0;
   overflow: hidden;
   text-align: center;
@@ -77,18 +75,62 @@ html {
   -webkit-user-select: none;
   touch-action: manipulation;
   white-space: nowrap;
+  transition: background 0.15s, border-color 0.15s, box-shadow 0.15s;
 }
 
 .settings-btn:hover {
-  border-color: #a2a6ac #979aa1 #82858a;
+  background: hsl(210deg 15% 34%);
+  border-color: hsl(210deg 10% 48%);
 }
 
 .settings-btn:active {
-  border-bottom-color: #a2a6ac;
+  background: hsl(210deg 15% 22%);
 }
 
 .settings-btn:focus {
-  border-color: #e77600;
-  box-shadow: rgba(228, 121, 17, 0.5) 0 0 3px 2px;
+  border-color: hsl(200deg 80% 50%);
+  box-shadow: 0 0 0 2px hsla(200deg 80% 50% / 0.35);
   outline: 0;
+}
+
+.settings-btn-primary {
+  background: hsl(200deg 70% 40%);
+  border-color: hsl(200deg 70% 50%);
+  color: white;
+}
+
+.settings-btn-primary:hover {
+  background: hsl(200deg 70% 46%);
+}
+
+.settings-btn-danger {
+  background: hsl(0deg 55% 40%);
+  border-color: hsl(0deg 55% 50%);
+  color: white;
+}
+
+.settings-btn-danger:hover {
+  background: hsl(0deg 55% 46%);
+}
+
+/* Settings page inputs */
+.settings-input {
+  background: hsl(210deg 15% 16%);
+  border: 1px solid hsl(210deg 10% 30%);
+  border-radius: 6px;
+  color: #e2e8f0;
+  padding: 6px 10px;
+  font-size: 13px;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  outline: 0;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.settings-input:focus {
+  border-color: hsl(200deg 80% 50%);
+  box-shadow: 0 0 0 2px hsla(200deg 80% 50% / 0.25);
+}
+
+.settings-input::placeholder {
+  color: hsl(210deg 10% 45%);
 }
