@@ -10,16 +10,16 @@ interface WeatherData {
   stationID: string;
   obsTimeLocal: string;
   neighborhood: string;
-  temp: number;
-  heatIndex: number;
-  dewpt: number;
-  windChill: number;
+  temp: number | null;
+  heatIndex: number | null;
+  dewpt: number | null;
+  windChill: number | null;
   windSpeed: number;
   windGust: number;
-  pressure: number;
+  pressure: number | null;
   precipRate: number;
   precipTotal: number;
-  humidity: number;
+  humidity: number | null;
   winddir: number;
   uv: number;
   solarRadiation: number | null;
@@ -70,16 +70,16 @@ export function WeatherModule({ stationId, apiKey, units = 'e' }: WeatherModuleP
         stationID: obs.stationID || stationId,
         obsTimeLocal: obs.obsTimeLocal || '',
         neighborhood: obs.neighborhood || '',
-        temp: measurements.temp ?? '--',
-        heatIndex: measurements.heatIndex ?? '--',
-        dewpt: measurements.dewpt ?? '--',
-        windChill: measurements.windChill ?? '--',
+        temp: measurements.temp ?? null,
+        heatIndex: measurements.heatIndex ?? null,
+        dewpt: measurements.dewpt ?? null,
+        windChill: measurements.windChill ?? null,
         windSpeed: measurements.windSpeed ?? 0,
         windGust: measurements.windGust ?? 0,
-        pressure: measurements.pressure ?? '--',
+        pressure: measurements.pressure ?? null,
         precipRate: measurements.precipRate ?? 0,
         precipTotal: measurements.precipTotal ?? 0,
-        humidity: obs.humidity ?? '--',
+        humidity: obs.humidity ?? null,
         winddir: obs.winddir ?? 0,
         uv: obs.uv ?? 0,
         solarRadiation: obs.solarRadiation ?? null,
@@ -129,10 +129,10 @@ export function WeatherModule({ stationId, apiKey, units = 'e' }: WeatherModuleP
 
       {/* Temperature section */}
       <div style={tempSection}>
-        <span style={tempStyle}>{weather.temp}{labels.temp}</span>
+        <span style={tempStyle}>{weather.temp ?? '--'}{labels.temp}</span>
         <div style={tempDetails}>
-          <span style={smallText}>Feels like {weather.heatIndex}{labels.temp}</span>
-          <span style={smallText}>Dew point {weather.dewpt}{labels.temp}</span>
+          <span style={smallText}>Feels like {weather.heatIndex ?? '--'}{labels.temp}</span>
+          <span style={smallText}>Dew point {weather.dewpt ?? '--'}{labels.temp}</span>
         </div>
       </div>
 
@@ -141,7 +141,7 @@ export function WeatherModule({ stationId, apiKey, units = 'e' }: WeatherModuleP
         <ReadingCard
           icon="💧"
           label="Humidity"
-          value={`${weather.humidity}%`}
+          value={weather.humidity != null ? `${weather.humidity}%` : '--'}
         />
         <ReadingCard
           icon="🌬️"
@@ -152,7 +152,7 @@ export function WeatherModule({ stationId, apiKey, units = 'e' }: WeatherModuleP
         <ReadingCard
           icon="📊"
           label="Pressure"
-          value={`${weather.pressure} ${labels.pressure}`}
+          value={weather.pressure != null ? `${weather.pressure} ${labels.pressure}` : '--'}
         />
         <ReadingCard
           icon="🌧️"
@@ -218,7 +218,7 @@ const stationStyle: React.CSSProperties = {
   fontWeight: 600,
   color: '#94a3b8',
   textTransform: 'uppercase',
-  letterSpacing: 1,
+  letterSpacing: '1px',
 };
 
 const timeStyle: React.CSSProperties = {
@@ -277,7 +277,7 @@ const cardHeader: React.CSSProperties = {
   fontSize: 'clamp(9px, 0.8vw, 11px)',
   color: '#64748b',
   textTransform: 'uppercase',
-  letterSpacing: 0.5,
+  letterSpacing: '0.5px',
 };
 
 const cardLabel: React.CSSProperties = {
