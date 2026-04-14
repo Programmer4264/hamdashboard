@@ -137,8 +137,8 @@ function WindCompass({ deg, mini = false }: { deg: number; mini?: boolean }) {
   for (let i = 0; i < tickCount; i++) {
     const a = i * tickStep;
     const isMajor = !mini && (i % 9 === 0);
-    const innerR = isMajor ? r - 10 : r - (mini ? 3 : 5);
-    const s = polarToCart(cx, cy, innerR, a);
+    const tickInnerR = isMajor ? r - 10 : r - (mini ? 3 : 5);
+    const s = polarToCart(cx, cy, tickInnerR, a);
     const e = polarToCart(cx, cy, r, a);
     ticks.push(
       <line key={i} x1={s.x} y1={s.y} x2={e.x} y2={e.y}
@@ -164,10 +164,12 @@ function WindCompass({ deg, mini = false }: { deg: number; mini?: boolean }) {
       {/* Wind arrow */}
       <line x1={fromX} y1={fromY} x2={toX} y2={toY} stroke="#e2e8f0" strokeWidth={mini ? 1.5 : 2.5} />
       {/* Arrowhead */}
-      <polygon
-        points={`${toX},${toY} ${toX + (mini ? 5 : 8) * Math.cos(arrowRad - 0.4)},${toY + (mini ? 5 : 8) * Math.sin(arrowRad - 0.4)} ${toX + (mini ? 5 : 8) * Math.cos(arrowRad + 0.4)},${toY + (mini ? 5 : 8) * Math.sin(arrowRad + 0.4)}`}
-        fill="#e2e8f0"
-      />
+      {(() => {
+        const headSize = mini ? 5 : 8;
+        const p1 = `${toX + headSize * Math.cos(arrowRad - 0.4)},${toY + headSize * Math.sin(arrowRad - 0.4)}`;
+        const p2 = `${toX + headSize * Math.cos(arrowRad + 0.4)},${toY + headSize * Math.sin(arrowRad + 0.4)}`;
+        return <polygon points={`${toX},${toY} ${p1} ${p2}`} fill="#e2e8f0" />;
+      })()}
       <circle cx={cx} cy={cy} r={mini ? 2 : 4} fill="#475569" />
     </svg>
   );
@@ -219,7 +221,7 @@ function PressureGauge({ pressure, units }: { pressure: number | null; units: st
   const needlePt = polarToCart(cx, cy, r - 15, needleDeg);
 
   // Tick marks
-  const ticks: React.ReactNode[] = [];
+  const ticks = [];
   const numTicks = isMetric ? 10 : 12;
   for (let i = 0; i <= numTicks; i++) {
     const f = i / numTicks;
