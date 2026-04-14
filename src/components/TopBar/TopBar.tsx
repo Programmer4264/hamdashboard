@@ -26,7 +26,7 @@ export function TopBar({ centerText }: { centerText: string }) {
 
   return (
     <div
-      className="grid grid-cols-[2fr_1fr_2fr] bg-[#333] text-white overflow-hidden relative w-auto"
+      className="grid grid-cols-[2fr_1fr_2fr] bg-[#333] text-white overflow-hidden relative w-auto flex-1 min-w-0"
       style={{ padding: '1vh', border: '0px none' }}
     >
       <div

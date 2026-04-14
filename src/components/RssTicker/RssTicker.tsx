@@ -28,14 +28,13 @@ export function RssTicker({ feeds }: RssTickerProps) {
   return (
     <div
       ref={tickerRef}
-      className="fixed bottom-0 w-full overflow-hidden whitespace-nowrap box-border"
+      className="w-full overflow-hidden whitespace-nowrap box-border shrink-0"
       style={{
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
         padding: '3px 0',
         fontFamily: '"Victor Mono", sans-serif',
         fontSize: '1.4vh',
         fontWeight: 'bold',
-        zIndex: 10,
       }}
     >
       <div

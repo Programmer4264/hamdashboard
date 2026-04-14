@@ -334,24 +334,22 @@ function App() {
         onClose={() => setShowSources(false)}
       />
 
-      {/* Left Menu */}
-      <SideMenu
-        items={allMenuItems}
-        side="L"
-        onMenuAction={handleMenuAction}
-      />
-
-      {/* Right Menu */}
-      <SideMenu
-        items={allMenuItems}
-        side="R"
-        onMenuAction={handleMenuAction}
-      />
-
       {/* Main Content */}
       <div className="fixed inset-0 overflow-hidden flex flex-col">
-        {/* Top Bar */}
-        <TopBar centerText={config.topBarCenterText} />
+        {/* Top Bar Row: Left Menu + TopBar + Right Menu */}
+        <div className="flex items-stretch bg-[#333] shrink-0">
+          <SideMenu
+            items={allMenuItems}
+            side="L"
+            onMenuAction={handleMenuAction}
+          />
+          <TopBar centerText={config.topBarCenterText} />
+          <SideMenu
+            items={allMenuItems}
+            side="R"
+            onMenuAction={handleMenuAction}
+          />
+        </div>
 
         {/* Dashboard Grid */}
         <DashboardGrid
@@ -361,12 +359,12 @@ function App() {
           paused={paused}
           onFullScreen={handleFullScreen}
         />
-      </div>
 
-      {/* RSS Ticker */}
-      {config.rssFeeds.length > 0 && (
-        <RssTicker feeds={config.rssFeeds} />
-      )}
+        {/* RSS Ticker */}
+        {config.rssFeeds.length > 0 && (
+          <RssTicker feeds={config.rssFeeds} />
+        )}
+      </div>
     </div>
   );
 }

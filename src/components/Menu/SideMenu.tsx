@@ -20,10 +20,11 @@ export function SideMenu({ items, side, onMenuAction }: SideMenuProps) {
   return (
     <div
       id={menuId}
-      className="hamburger-menu fixed z-[10]"
+      className="hamburger-menu relative z-[10]"
       style={{
-        top: 6,
-        ...(isLeft ? { left: 6 } : { right: 6 }),
+        display: 'flex',
+        alignItems: 'center',
+        padding: '0 4px',
       }}
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
@@ -56,7 +57,6 @@ export function SideMenu({ items, side, onMenuAction }: SideMenuProps) {
           cursor: 'pointer',
           fontSize: 18,
           transition: 'background 0.15s, border-color 0.15s',
-          ...(isLeft ? {} : { marginLeft: 'auto' }),
         }}
       >
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
@@ -73,7 +73,8 @@ export function SideMenu({ items, side, onMenuAction }: SideMenuProps) {
         className="hamburger-dropdown"
         style={{
           position: 'absolute',
-          top: 40,
+          top: '100%',
+          marginTop: 4,
           ...(isLeft ? { left: 0 } : { right: 0 }),
           minWidth: 180,
           borderRadius: 10,
