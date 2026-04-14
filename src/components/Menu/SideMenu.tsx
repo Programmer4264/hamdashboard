@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import type { MenuItem } from '../../config/configTypes';
 
 interface SideMenuProps {
@@ -7,9 +7,32 @@ interface SideMenuProps {
   onMenuAction: (item: MenuItem, index: number) => void;
 }
 
+const CLOSE_DELAY_MS = 300;
+
 export function SideMenu({ items, side, onMenuAction }: SideMenuProps) {
   const [open, setOpen] = useState(false);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const filteredItems = items.filter((item) => item.side === side);
+
+  const cancelClose = useCallback(() => {
+    if (closeTimer.current) {
+      clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+  }, []);
+
+  const handleMouseEnter = useCallback(() => {
+    cancelClose();
+    setOpen(true);
+  }, [cancelClose]);
+
+  const handleMouseLeave = useCallback(() => {
+    cancelClose();
+    closeTimer.current = setTimeout(() => {
+      setOpen(false);
+      closeTimer.current = null;
+    }, CLOSE_DELAY_MS);
+  }, [cancelClose]);
 
   if (filteredItems.length === 0) return null;
 
@@ -26,8 +49,8 @@ export function SideMenu({ items, side, onMenuAction }: SideMenuProps) {
         alignItems: 'center',
         padding: '0 4px',
       }}
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       {/* Hamburger trigger */}
       <button
