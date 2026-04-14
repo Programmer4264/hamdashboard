@@ -28,7 +28,7 @@ interface WeatherData {
 }
 
 const UNIT_LABELS: Record<string, { temp: string; speed: string; pressure: string; precip: string }> = {
-  e: { temp: '°F', speed: 'mph', pressure: 'in', precip: 'in' },
+  e: { temp: '°F', speed: 'mph', pressure: 'inHg', precip: 'in' },
   m: { temp: '°C', speed: 'km/h', pressure: 'mb', precip: 'mm' },
   h: { temp: '°C', speed: 'mph', pressure: 'mb', precip: 'mm' },
 };
@@ -91,7 +91,7 @@ function TemperatureGauge({ temp, units }: { temp: number | null; units: string 
   );
 }
 
-function WindCompass({ deg }: { deg: number; speed: number }) {
+function WindCompass({ deg }: { deg: number }) {
   const cx = 100, cy = 100, r = 70;
   const labels = [
     { label: 'N', angle: -90 },
@@ -155,9 +155,11 @@ function WindCompass({ deg }: { deg: number; speed: number }) {
   );
 }
 
-function PrecipitationGauge({ total, max: maxVal }: { total: number; max: number }) {
+const MAX_PRECIP_DISPLAY = 2; // Maximum precipitation (inches/mm) for full gauge
+
+function PrecipitationGauge({ total }: { total: number }) {
   // Simple cylinder / tube
-  const fillFraction = maxVal > 0 ? Math.min(1, total / maxVal) : 0;
+  const fillFraction = MAX_PRECIP_DISPLAY > 0 ? Math.min(1, total / MAX_PRECIP_DISPLAY) : 0;
   const tubeH = 80;
   const tubeW = 30;
   const tubeX = 85;
@@ -406,7 +408,7 @@ export function WeatherModule({ stationId, apiKey, units = 'e', compact = false 
         {/* WIND */}
         <div style={gaugeCard}>
           <span style={gaugeTitle}>WIND</span>
-          <WindCompass deg={weather.winddir} speed={weather.windSpeed} />
+          <WindCompass deg={weather.winddir} />
           <div style={gaugeValueRow}>
             <span style={gaugeValueLarge}>{weather.windSpeed}</span>
             <span style={gaugeValueUnit}>{labels.speed}</span>
@@ -420,7 +422,7 @@ export function WeatherModule({ stationId, apiKey, units = 'e', compact = false 
         {/* PRECIPITATION */}
         <div style={gaugeCard}>
           <span style={gaugeTitle}>PRECIPITATION</span>
-          <PrecipitationGauge total={weather.precipTotal} max={2} />
+          <PrecipitationGauge total={weather.precipTotal} />
           <div style={gaugeValueRow}>
             <span style={gaugeValueLarge}>{weather.precipTotal}</span>
             <span style={gaugeValueUnit}>{labels.precip}</span>
