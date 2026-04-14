@@ -52,6 +52,19 @@ html {
   }
 }
 
+/* Hamburger menu hover styles */
+.hamburger-trigger:hover {
+  background: hsl(210deg 15% 26%) !important;
+  border-color: hsl(210deg 10% 42%) !important;
+}
+
+.hamburger-menu:hover .hamburger-dropdown,
+.hamburger-menu:focus-within .hamburger-dropdown {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: translateY(0) !important;
+}
+
 /* Settings page button styles */
 .settings-btn {
   padding: 6px 16px;

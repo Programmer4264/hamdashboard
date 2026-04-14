@@ -1,8 +1,4 @@
 import type { MenuItem } from '../../config/configTypes';
-import { MENU_WIDTH } from '../../utils/layoutConstants';
-
-/** Fixed-pixel width of the visible tab when the menu is collapsed. */
-const TAB_WIDTH = 8;
 
 interface SideMenuProps {
   items: MenuItem[];
@@ -21,58 +17,96 @@ export function SideMenu({ items, side, onMenuAction }: SideMenuProps) {
   return (
     <div
       id={menuId}
-      className="grid gap-[3px] fixed h-auto z-[5]"
+      className="hamburger-menu fixed z-[10]"
       style={{
-        top: '10vh',
-        transition: 'transform 0.3s',
-        width: 'fit-content',
-        ...(isLeft
-          ? { left: 0, transform: `translateX(calc(-100% + ${TAB_WIDTH}px))` }
-          : { right: 0, transform: `translateX(calc(100% - ${TAB_WIDTH}px))` }),
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.transform = 'translateX(0)';
-      }}
-      onMouseLeave={(e) => {
-        if (isLeft) {
-          e.currentTarget.style.transform = `translateX(calc(-100% + ${TAB_WIDTH}px))`;
-        } else {
-          e.currentTarget.style.transform = `translateX(calc(100% - ${TAB_WIDTH}px))`;
-        }
+        top: 6,
+        ...(isLeft ? { left: 6 } : { right: 6 }),
       }}
     >
-      {filteredItems.map((item, i) => {
-        const globalIndex = items.indexOf(item);
-        const iconClass =
-          item.type === 'core'
-            ? 'menu-core'
-            : item.type === 'config'
-              ? 'menu-config'
-              : 'menu-user';
+      {/* Hamburger trigger */}
+      <button
+        className="hamburger-trigger"
+        aria-label={isLeft ? 'Left menu' : 'Right menu'}
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: 36,
+          height: 36,
+          borderRadius: 8,
+          border: '1px solid hsl(210deg 10% 30%)',
+          background: 'hsl(210deg 15% 18%)',
+          color: '#e2e8f0',
+          cursor: 'pointer',
+          fontSize: 18,
+          transition: 'background 0.15s, border-color 0.15s',
+          ...(isLeft ? {} : { marginLeft: 'auto' }),
+        }}
+      >
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <rect y="3" width="20" height="2" rx="1" fill="currentColor" />
+          <rect y="9" width="20" height="2" rx="1" fill="currentColor" />
+          <rect y="15" width="20" height="2" rx="1" fill="currentColor" />
+        </svg>
+      </button>
 
-        return (
-          <div key={`${side}-${i}`} className={isLeft ? 'sidenav' : 'sidenavR'}>
+      {/* Dropdown menu */}
+      <div
+        className="hamburger-dropdown"
+        style={{
+          position: 'absolute',
+          top: 40,
+          ...(isLeft ? { left: 0 } : { right: 0 }),
+          minWidth: 180,
+          borderRadius: 10,
+          border: '1px solid hsl(210deg 10% 25%)',
+          background: 'hsl(210deg 15% 14%)',
+          boxShadow: '0 8px 32px rgba(0,0,0,0.5)',
+          padding: '6px 0',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 2,
+          opacity: 0,
+          pointerEvents: 'none',
+          transform: 'translateY(-8px)',
+          transition: 'opacity 0.2s, transform 0.2s',
+        }}
+      >
+        {filteredItems.map((item, i) => {
+          const globalIndex = items.indexOf(item);
+          const iconClass =
+            item.type === 'core'
+              ? 'menu-core'
+              : item.type === 'config'
+                ? 'menu-config'
+                : 'menu-user';
+
+          return (
             <a
+              key={`${side}-${i}`}
               href="#"
               className={`menu-link ${iconClass}`}
               style={{
-                display: 'block',
-                backgroundColor: `#${item.color}`,
-                boxSizing: 'content-box',
-                transition: '0.3s',
-                paddingLeft: '15px',
-                paddingRight: '15px',
-                paddingTop: '12px',
-                paddingBottom: '8px',
-                width: MENU_WIDTH,
+                display: 'flex',
+                alignItems: 'center',
+                gap: 8,
+                padding: '8px 14px',
+                margin: '0 6px',
+                borderRadius: 6,
+                borderLeft: `3px solid #${item.color}`,
                 textDecoration: 'none',
                 fontFamily: '"Bebas Neue", sans-serif',
-                fontSize: 'clamp(12px, 1.2vw, 20px)',
-                fontWeight: 300,
-                textAlign: isLeft ? 'right' : 'left',
-                color: 'white',
-                borderRadius: isLeft ? '0 5px 5px 0' : '5px 0 0 5px',
-                boxShadow: '4px 4px 12px rgba(0, 0, 0, 0.5)',
+                fontSize: 'clamp(13px, 1.1vw, 18px)',
+                fontWeight: 400,
+                color: '#e2e8f0',
+                transition: 'background 0.12s',
+                background: 'transparent',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'hsl(210deg 15% 22%)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'transparent';
               }}
               onClick={(e) => {
                 e.preventDefault();
@@ -81,9 +115,9 @@ export function SideMenu({ items, side, onMenuAction }: SideMenuProps) {
             >
               {item.text}
             </a>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 }
