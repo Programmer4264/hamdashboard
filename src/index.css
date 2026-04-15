@@ -1,0 +1,149 @@
+@import "tailwindcss";
+
+/* HAM Dashboard Global Styles */
+body,
+html {
+  background: black;
+  font-size: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  height: 100%;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+/* Menu link icons */
+.menu-link.menu-core::before {
+  content: '★';
+  margin-right: 0px;
+  margin-left: 0px;
+  opacity: 0.8;
+}
+
+.menu-link.menu-config::before {
+  content: '⚙️';
+  margin-right: 0px;
+  margin-left: 0px;
+  opacity: 0.8;
+  display: inline-block;
+  transform: scale(0.7);
+  transform-origin: center;
+}
+
+.menu-link.menu-user::before {
+  content: '';
+  margin-right: 1px;
+}
+
+/* RSS Ticker Animation */
+@keyframes ticker {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Hamburger menu hover styles */
+.hamburger-trigger:hover {
+  background: hsl(210deg 15% 26%) !important;
+  border-color: hsl(210deg 10% 42%) !important;
+}
+
+.hamburger-menu:hover .hamburger-dropdown,
+.hamburger-menu:focus-within .hamburger-dropdown {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: translateY(0) !important;
+}
+
+/* Settings page button styles */
+.settings-btn {
+  padding: 6px 16px;
+  margin: 0 4px 4px 0;
+  cursor: pointer;
+  background: hsl(210deg 15% 28%);
+  border: 1px solid hsl(210deg 10% 38%);
+  border-radius: 6px;
+  box-sizing: border-box;
+  color: #e2e8f0;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  outline: 0;
+  overflow: hidden;
+  text-align: center;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  transition: background 0.15s, border-color 0.15s, box-shadow 0.15s;
+}
+
+.settings-btn:hover {
+  background: hsl(210deg 15% 34%);
+  border-color: hsl(210deg 10% 48%);
+}
+
+.settings-btn:active {
+  background: hsl(210deg 15% 22%);
+}
+
+.settings-btn:focus {
+  border-color: hsl(200deg 80% 50%);
+  box-shadow: 0 0 0 2px hsla(200deg 80% 50% / 0.35);
+  outline: 0;
+}
+
+.settings-btn-primary {
+  background: hsl(200deg 70% 40%);
+  border-color: hsl(200deg 70% 50%);
+  color: white;
+}
+
+.settings-btn-primary:hover {
+  background: hsl(200deg 70% 46%);
+}
+
+.settings-btn-danger {
+  background: hsl(0deg 55% 40%);
+  border-color: hsl(0deg 55% 50%);
+  color: white;
+}
+
+.settings-btn-danger:hover {
+  background: hsl(0deg 55% 46%);
+}
+
+/* Settings page inputs */
+.settings-input {
+  background: hsl(210deg 15% 16%);
+  border: 1px solid hsl(210deg 10% 30%);
+  border-radius: 6px;
+  color: #e2e8f0;
+  padding: 6px 10px;
+  font-size: 13px;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  outline: 0;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.settings-input:focus {
+  border-color: hsl(200deg 80% 50%);
+  box-shadow: 0 0 0 2px hsla(200deg 80% 50% / 0.25);
+}
+
+.settings-input::placeholder {
+  color: hsl(210deg 10% 45%);
+}

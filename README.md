@@ -1,242 +1,455 @@
-# Ham Dashboard (hamdashboard)
+# 📡 HAM Radio Dashboard
 
-Live demo: [Hamdash Demo](https://va3hdl.github.io/hamdash/)
+A customizable dashboard for ham radio operators. Display live radar images, satellite feeds, weather data, propagation maps, and more — all in one browser window.
 
-This repository provides a simple, browser-based ham radio dashboard that displays images, maps, web pages, and feeds in a configurable grid. It is lightweight, easy to host, and suitable for use on a local computer, Raspberry Pi, or a static host such as GitHub Pages or Cloudflare Pages.
+> **Originally a single HTML page app** — this project has been modernized to React + TypeScript while keeping the same easy configuration format. Your existing `config.js` or `config.json` files still work!
 
-Quick demo videos:
-- Original presentation: [YouTube - VA3HDL presentation](https://www.youtube.com/watch?v=sIdqMQTGNSc)
-- Spanish overview: [YouTube - VA3HDL en español](https://www.youtube.com/watch?v=IBMxELofKVA)
+![Dashboard Sample](examples/dashboard_sample.png)
 
-## User-submitted public dashboards
-These live dashboards were shared by members of the ham community:
+---
 
-- [BCAT N4TDX](https://qsl.net/n/n5ng/BCAT/) — Steve N5NG (Brevard County ARES)
-  - Steve's config files (as .txt): <https://qsl.net/n5ng/config.txt> and <https://qsl.net/n5ng/HAM/config.txt>
-- [FFX DEMS](https://kq4dne.github.io/WeatherDash/WeatherDash.html) — Sandy KQ4DNE
-- [FFX ARES](https://kq4dne.github.io/hamdash/hamdash.html) — Sandy KQ4DNE
-- [WA4MED](https://dashboard.wa4med.us/hamdash.html) — Matthew WA4MED
-- [PY3TX](https://dashboard.py3tx.com/) — South America
-- [VE7CAS](https://hamradio.smecher.bc.ca/) — Vancouver, BC
-- [G0IKV](https://g0ikv.qsy.to/) — Southport, England
-- [OK1SLM](https://www.qsl.net/ok1slm/) — Prague
-- [VK3VSN](https://www.vicscan.com/hamdash/) — Melbourne, Australia
-- [K6BCW](https://elihickox.com/radio/hamdashboard/hamdash.html) — San Francisco Bay Area
-- [KN6PTQ](https://kn6ptq.com/) — San Francisco Bay Area
-- [W2SZ](https://dashboard.w2sz.org/) — NE US
-- [N2YQT](https://dashboard.tourge.net/) — NE US
-- [KC2VWR](https://baef57ae.ham-desktop.pages.dev/) — NE US
-- [KD2YFY](https://dash.kd2yfy.net/) — NE US
-- [KD4VRD](https://hamdashboard-8fn.pages.dev/) — North Carolina
-- [KD5PQJ](https://kd5pqj.com/dash/index.html) — Texas
-- [N5GAH](http://n5gah.com/) — Texas
-- [KJ7YYI](https://kj7yyi.net/ham-dash/) — Arizona
-- [NQ0M](https://hamdash.nq0m.com/#) — Kansas
-- [W3RDW](https://dashboard.w3rdw.radio/) — Ohio
-- [W4QAL](https://w4qal.net/dashboard/index.html) — West Florida
+## Table of Contents
 
-## Quick start
+- [Quick Start](#quick-start)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Running the Dashboard](#running-the-dashboard)
+- [Configuration](#configuration)
+  - [Config File Formats](#config-file-formats)
+  - [Grid Layout](#grid-layout)
+  - [Dashboard Tiles](#dashboard-tiles)
+  - [Menu Items](#menu-items)
+  - [RSS Feeds](#rss-feeds)
+  - [Weather Underground Integration](#weather-underground-integration)
+- [Using the Dashboard](#using-the-dashboard)
+  - [Keyboard and Mouse Controls](#keyboard-and-mouse-controls)
+  - [Settings Page](#settings-page)
+  - [Multiple Configurations](#multiple-configurations)
+- [Tile Source Types](#tile-source-types)
+- [Legacy HTML Version](#legacy-html-version)
+- [Troubleshooting](#troubleshooting)
+- [License](#license)
 
-1. Download the following files from this repository into a single folder: `hamdash.html`, `config.js`, and `wheelzoom.js`.
-2. Open `hamdash.html` in your browser.
-3. Use the right-side menu and select "Setup" to open the settings UI and configure your dashboard.
-4. Alternatively, edit `config.js` in a text editor to set sources, menus, and layout.
-5. Load configuration from the browser (Local Storage) or from `config.js`, then save your settings.
+---
 
-**Notes**
-- For hosted (server) installations, store settings in `config.js` so the server serves the same configuration to all visitors.
-- For personal use or testing, Local Storage keeps changes specific to your browser session.
-- Now is possible to use a pure Json file format for the configuration load on hosted environments
-- For file:// access (non-hosted usage) a newer JsonP-style format is available for the configuration load
+## Quick Start
 
-## Settings UI
+The fastest way to get started is using the included launcher scripts. They handle everything for you — checking for prerequisites, installing dependencies, and opening the dashboard in your browser.
 
-The settings UI provides buttons to manage configurations and backups:
+### Windows
 
-<img src="https://github.com/VA3HDL/hamdashboard/blob/main/examples/settings_buttons.png?raw=true" width="800">
+Open PowerShell and run:
 
-- Save Settings to Local Storage — Save current page settings in the browser.
-- Reset to Defaults — Restore sample settings for testing.
-- Backup Settings to JSON file — Download a JSON file with your settings.
-- Restore Settings from JSON file — Load settings from a JSON backup.
-- Import from `config.js` — Load settings defined in a `config.js` file (recommended for servers).
-- Export to `config.js` — Export current settings in `config.js` format for hosting.
-
-## Public dashboards and safety
-
-The "Setup" UI cannot modify the server-side `config.js` file. When a visitor switches a public dashboard to Local Storage, the change affects only that visitor's browser. To hide the **Setup** option or **Load Cfg** option on public installations, add the following lines to your `config.js`:
-
-```
-const disableSetup = true;
-const disableLdCfg = true;
+```powershell
+.\start.ps1
 ```
 
-## Video guides
+### macOS / Linux
 
-- [Configuration instructions — Jason KM4ACK](https://youtu.be/9ZZXg60tN-o)
-- [Raspberry Pi setup — Andreas M0FXB](https://www.youtube.com/watch?v=Km_vOCvCMFM)
-- [Live stream — Frank KG6NLW](https://www.youtube.com/watch?v=rJHCpNHDbC0&t=140s)
-- [Live stream — KM9G](https://www.youtube.com/watch?v=ohlHaSsf6B8=400s)
-- [Ham Dashboard on Inovato Quadra — Peter KJ5AJB](https://www.youtube.com/watch?v=u07Oz-YSrQY)
-- [French review — Jean-Benard F5SVP](https://www.youtube.com/watch?v=o9Dl9A5hqQI)
-- [Spanish instructions — Jose EA8EE](https://www.youtube.com/watch?v=3CnsfB3zNuM)
-
-## Getting help
-
-Always check the [Q&A section](https://github.com/VA3HDL/hamdashboard/discussions/categories/q-a) for solutions to common issues.
-
-## Docker
-
-Michael Stevens maintains a Docker image: [michaelsteven/hamdashboard](https://registry.hub.docker.com/r/michaelsteven/hamdashboard)
-
-## How to use
-
-- Double-click an image to view full-screen; double-click again to close.
-- Right-click an image to cycle to the next image (if multiple images are assigned to a tile).
-- Tiles refresh independently (default refresh behavior: every 5 minutes for most sources).
-- Tiles with iFrames: double click to unlock the tile and interact with the content
-
-## Pi-Star iFrame embedding (fix)
-
-If a remote site sets the `X-Frame-Options` header it may prevent embedding via iframes. On Pi-Star you can temporarily switch to read/write, edit the nginx security config, and restart nginx:
+Open a terminal and run:
 
 ```bash
-rpi-rw
-sudo nano /etc/nginx/default.d/security.conf
-# comment out: add_header X-Frame-Options  "SAMEORIGIN";
-
-sudo systemctl restart nginx.service
+./start.sh
 ```
 
-This screenshot shows Pi-Star settings:
+> **Note:** On macOS/Linux, if you get a "permission denied" error, first run: `chmod +x start.sh`
 
-<img src="https://github.com/VA3HDL/hamdashboard/blob/main/examples/pistar.png?raw=true" width="400">
+That's it! The script will:
+1. Check if Node.js is installed (and tell you where to get it if not)
+2. Install project dependencies automatically
+3. Start the development server
+4. Open the dashboard in your default browser
 
-## iFrame tips
+---
 
-If the source server forbids embedding and you cannot change its headers, options are limited. A local proxy that strips the header can work but adds complexity. Use the online tool to test a URL before adding it to a tile: [iFrame Tester online](https://iframetester.com/)
+## Requirements
 
-## Changelog highlights (most recent)
+- **Node.js** version 18 or newer — [Download here](https://nodejs.org/)
+  - The LTS (Long Term Support) version is recommended
+  - The installer includes `npm` (Node Package Manager) automatically
 
-See the chronological entries below for full details. Notable recent changes:
+That's the only thing you need to install yourself. Everything else is handled automatically.
 
-- 2026.01.30 — Fixed RSS feeds not loading on some hosting situations due to a CORS issue.
+### How to Check if Node.js is Installed
 
-- 2026.01.24 — Added 10 features:
-  1. JSON & JSONP Configuration Support (example .json and JsonP .js files added to the repo)
-  2. Dynamic Date Placeholders
-  3. Rotating Tile **Titles** - Requested by multiple users, see example in all 3 config files
-  4. Smart Mixed-Media Interactivity (for tiles mixing images, videos, iFrames)
-  5. Enhanced Full-Screen Navigation
-  6. Setup UI Improvements
-  7. Enhanced Breadcrumb Navigation to provide always a return path to previous configs
-  8. PREVIOUS Menu Button
-  9. Enhanced Config File Detection to support various file formats
-  10. File Picker Integration to load different dashboards on the fly
-
-- 2026.01.22 — Added directives to load images and iframes with colors inverted. Full details on the release notes.
-- 2026.01.17 — Ability to load any config files via the menu.
-- 2025.11.12 — Switch between multiple config files (e.g., `satellite.js`) via the menu.
-- 2025.04.02 — RSS feed refresh times configurable; feed ticker added.
-- 2025.03.29 — Scrolling RSS ticker and clickable feed items.
-- 2025.01.24 — Settings merged into `hamdash.html`; realtime variable changes enabled.
-
-## Upgrade notes
-
-- For simpler sintax you can now use Json or JsonP files for config files
-- Read the specific upgrade notes in the changelog below before replacing `config.js`
-- To use multiple config files, add a menu entry in `config.js` such as:
+Open a terminal (or PowerShell on Windows) and type:
 
 ```
-var aURL = [  
-  ["f3de21ff", "SATS", "satellite.js"],
-  ["f3de21ff", "WX", "weather.js", "1", "R"]
+node --version
+```
+
+If you see a version number like `v20.11.0`, you're good to go. If you get an error, [download and install Node.js](https://nodejs.org/).
+
+---
+
+## Installation
+
+1. **Download or clone** this repository to your computer:
+
+   ```bash
+   git clone https://github.com/rbleattler/hamdashboard.git
+   cd hamdashboard
+   ```
+
+   Or download the ZIP file from GitHub and extract it.
+
+2. **Install dependencies** (the launcher scripts do this automatically, but you can also do it manually):
+
+   ```bash
+   npm install
+   ```
+
+---
+
+## Running the Dashboard
+
+### Using Launcher Scripts (Recommended)
+
+| Platform        | Command              |
+|-----------------|----------------------|
+| Windows         | `.\start.ps1`       |
+| macOS / Linux   | `./start.sh`        |
+
+### Manual Start
+
+```bash
+npm run dev
+```
+
+Then open your browser to **http://localhost:5173**
+
+### Script Options
+
+Both launcher scripts support optional parameters:
+
+| Parameter     | Default   | Description                        |
+|---------------|----------|------------------------------------|
+| `--port`      | `5173`   | Port number for the dev server     |
+| `--no-browser`| *(off)*  | Don't open the browser automatically |
+| `--host`      | *(off)*  | Allow access from other devices on your network |
+
+**Examples:**
+
+```powershell
+# Windows - use port 8080 and allow network access
+.\start.ps1 -Port 8080 -ExposeHost
+
+# Windows - don't open the browser
+.\start.ps1 -NoBrowser
+```
+
+```bash
+# macOS/Linux - use port 8080 and allow network access
+./start.sh --port 8080 --host
+
+# macOS/Linux - don't open the browser
+./start.sh --no-browser
+```
+
+---
+
+## Configuration
+
+The dashboard is configured using a config file that controls everything: the grid layout, which tiles are shown, what menu links are available, and more.
+
+### Config File Formats
+
+The dashboard supports two config file formats. Both go in the `public/` folder:
+
+1. **`config.js`** — JavaScript format (original format, easiest to edit)
+2. **`config.json`** — JSON format (alternative)
+
+The dashboard looks for configs in this order:
+1. Settings saved in your browser (via the Setup page)
+2. Config file specified in the URL (e.g., `?config=myconfig.js`)
+3. `config.js`
+4. `config.json`
+5. Built-in minimal fallback
+
+### Grid Layout
+
+Control how many tiles appear on screen:
+
+```js
+// config.js
+var layout_cols = 4;  // Number of columns (default: 4)
+var layout_rows = 3;  // Number of rows (default: 3)
+```
+
+```json
+// config.json
+{
+  "layout_cols": 4,
+  "layout_rows": 3
+}
+```
+
+Common layouts:
+- **4×3** = 12 tiles (default, good for widescreen monitors)
+- **3×3** = 9 tiles
+- **2×2** = 4 tiles (good for smaller screens)
+- **5×3** = 15 tiles (for ultra-wide monitors)
+
+### Dashboard Tiles
+
+Each tile shows an image, video, website, or weather widget. Images auto-refresh periodically.
+
+**JavaScript format (`config.js`):**
+
+```js
+var aIMG = [
+  ["TILE TITLE", "https://example.com/image.gif"],
+  ["ANOTHER TILE", "https://example.com/other.png"],
+  // ... more tiles
+];
+
+// Optional: set rotation speed per tile (in milliseconds)
+var tileDelay = [
+  10000, 30000,  // tile 1 = 10 seconds, tile 2 = 30 seconds
 ];
 ```
-**Rotating Tile Titles Usage:**
 
-Pass an array as the first element of a tile configuration.
-```javascript
-// Example in config.js
-[
-  ["Radar CONUS", "Radar Local"], 
-  "https://radar.com/map1.gif", 
-  "https://radar.com/map2.gif"
-]
+**JSON format (`config.json`):**
+
+```json
+{
+  "aIMG": [
+    ["TILE TITLE", "https://example.com/image.gif", 10000],
+    ["ANOTHER TILE", "https://example.com/other.png", 30000]
+  ]
+}
 ```
-## Example images
 
-<img src="https://github.com/VA3HDL/hamdashboard/blob/main/examples/satellite.png?raw=true" width="600">
-<img src="https://github.com/VA3HDL/hamdashboard/blob/main/examples/config.png?raw=true" width="600">
+#### Multiple Sources per Tile
 
-Grid examples
+A tile can rotate between multiple images:
 
-<img src="https://github.com/VA3HDL/hamdashboard/blob/main/examples/2x2.png?raw=true" width="200">
-<img src="https://github.com/VA3HDL/hamdashboard/blob/main/examples/3x3.png?raw=true" width="200">
-<img src="https://github.com/VA3HDL/hamdashboard/blob/main/examples/4x4.png?raw=true" width="200">
-<img src="https://github.com/VA3HDL/hamdashboard/blob/main/examples/5x3.png?raw=true" width="200">
+```js
+// config.js — multiple titles + multiple sources
+[["Radar Large", "Radar Small"],
+  "https://example.com/radar-large.gif",
+  "https://example.com/radar-small.gif"],
+```
 
-## More notes and history
+The tile will cycle through the images and update the title to match.
 
-The repository includes a detailed changelog documenting fixes, features, and upgrade instructions dating back through 2024. Please review the changelog entries below before performing upgrades.
+### Menu Items
 
-[Releases & Change logs](https://github.com/VA3HDL/hamdashboard/releases)
+Menu items appear in the left and right hamburger menus. Clicking a menu item opens a full-screen overlay with that website.
 
-## Host with Cloudflare Pages (free)
+**JavaScript format (`config.js`):**
 
-Tutorial contributed by Robert W3RDW:
-[How to host your dashboard with Cloudflare Pages, free](https://w3rdw.radio/posts/hamdashboard/)
+```js
+var aURL = [
+  // [color, name, URL, scale, side]
+  ["2196F3", "DX CLUSTER", "https://dxcluster.ha8tks.hu/map/", "1"],
+  ["2196F3", "RADAR", "https://weather.gc.ca/", "1", "R"],
+  //                                                     ^^^ "R" = right menu
+];
+```
 
-## Sample dashboards submitted by users
+| Field  | Description                                        |
+|--------|----------------------------------------------------|
+| Color  | Hex color code for the menu text (without `#`)     |
+| Name   | Text shown in the menu                             |
+| URL    | Website to open when clicked                       |
+| Scale  | Zoom level (1 = normal, 1.5 = 150%, etc.)         |
+| Side   | `"R"` for right menu, omit or anything else for left |
 
-![VA3HDL Sample Dashboard](https://github.com/VA3HDL/hamdashboard/blob/main/examples/dashboard_sample.png?raw=true)
+### RSS Feeds
 
-![N4NBC Sample Dashboard](https://github.com/VA3HDL/hamdashboard/blob/main/examples/N4NBC-sample.jpg?raw=true)
+Add RSS/Atom feeds to display a scrolling news ticker at the bottom of the dashboard:
 
-![KM4ACK Sample Dashboard](https://github.com/VA3HDL/hamdashboard/blob/main/examples/KM4ACK-sample.png?raw=true)
+```js
+// config.js
+var aRSS = [
+  ["https://www.amsat.org/feed/", 60],           // Refresh every 60 minutes
+  ["https://daily.hamweekly.com/atom.xml", 120],  // Refresh every 120 minutes
+];
+```
 
-![TI3GB Sample Dashboard](https://github.com/VA3HDL/hamdashboard/blob/main/examples/TI3GB-sample.png?raw=true)
+### Weather Underground Integration
 
-![N5NG Sample Dashboard](https://github.com/VA3HDL/hamdashboard/blob/main/examples/N5NG-sample.png?raw=true)
+The dashboard includes a built-in weather widget that shows real-time data from a Weather Underground Personal Weather Station (PWS).
 
-![VK3MLT Sample Dashboard](https://github.com/VA3HDL/hamdashboard/blob/main/examples/VK3MLT-sample.png?raw=true)
+**To set up weather:**
 
-![VK5TUX Sample Dashboard](examples/VK5TUX_Sample_VA3HDL_Ham_Radio_Dashboard.png?raw=true)
+1. Get a free API key from [Weather Underground](https://www.wunderground.com/member/api-keys)
+2. Find your station ID (or a nearby station) on [Weather Underground](https://www.wunderground.com/wundermap)
+3. Add a weather tile to your config:
 
-![VK5TUX Sample Dashboard Sources](examples/VK5TUX_Sample_VA3HDL_Ham_Radio_Dashboard_Sources.png?raw=true)
+```js
+// config.js — add to aIMG array:
+["WEATHER (WU)", "weather|YOUR_STATION_ID|YOUR_API_KEY|e"],
+```
 
-![N4TDX Sample Dashboard](https://github.com/VA3HDL/hamdashboard/blob/main/examples/N4TDX-sample.png?raw=true)
+The format is: `weather|STATION_ID|API_KEY|UNITS`
 
-![WG5EEK Sample Dashboard](https://github.com/VA3HDL/hamdashboard/blob/main/examples/WG5EEK-sample.jpg?raw=true)
+| Units | Description    |
+|-------|---------------|
+| `e`   | Imperial (°F, mph, inHg) |
+| `m`   | Metric (°C, km/h, mb)    |
+| `h`   | Hybrid (°C, mph, mb)     |
 
-![KJ5FMX Sample Dashboard](https://github.com/VA3HDL/hamdashboard/blob/main/examples/KJ5FMX-sample.jpg?raw=true)
+The weather tile shows temperature, humidity, and wind at a glance. Double-click the tile to open the full weather view with detailed gauges for temperature, wind direction, precipitation, and barometric pressure.
 
-![N0RMJ Sample Dashboard](https://github.com/VA3HDL/hamdashboard/blob/main/examples/N0RMJ-sample.jpg?raw=true)
+---
 
-![N5GAH Sample Dashboard](https://github.com/VA3HDL/hamdashboard/blob/main/examples/N5GAH-sample.jpg?raw=true)
+## Using the Dashboard
 
-![OES MarTech Sample Dashboard](https://github.com/VA3HDL/hamdashboard/blob/main/examples/OESmartech.jpg?raw=true)
+### Keyboard and Mouse Controls
 
-![TheSky Sample Dashboard](https://github.com/VA3HDL/hamdashboard/blob/main/examples/TheSky.jpg?raw=true)
+| Action                           | What It Does                                         |
+|----------------------------------|------------------------------------------------------|
+| **Double-click** an image tile   | Open full-screen view of that image                  |
+| **Double-click** a weather tile  | Open the full weather detail page                    |
+| **Double-click** in full screen  | Close full-screen view                               |
+| **Right-click** an image tile    | Switch to the next image (for tiles with multiple sources) |
+| **Mouse wheel** (in full screen) | Zoom in/out                                          |
 
-![KJ7T Sample Dashboard](https://github.com/VA3HDL/hamdashboard/blob/main/examples/KJ7T-sample.png?raw=true)
+### Settings Page
 
-![K4HNH Sample Dashboard](https://github.com/VA3HDL/hamdashboard/blob/main/examples/K4HNH-sample.jpg?raw=true)
+Click the **Setup** button in the right menu to open the Settings page. From here you can:
 
-![CT1ETE Sample Dashboard](https://github.com/VA3HDL/hamdashboard/blob/main/examples/CT1ETE-sample.jpg?raw=true)
+- Change the top bar text (your callsign, grid locator, etc.)
+- Adjust the grid layout (columns × rows)
+- Add, edit, or remove tiles
+- Add, edit, or remove menu items
+- Configure RSS feeds
+- Choose whether settings are saved in your browser or loaded from a config file
+- Export your settings to a `config.js` file
 
-![VK3FS Sample Dashboard](https://github.com/VA3HDL/hamdashboard/blob/main/examples/VK3FS-sample.png?raw=true)
+### Multiple Configurations
 
-![W5EAK Sample Dashboard](https://github.com/VA3HDL/hamdashboard/blob/main/examples/W5EAK-sample.jpg?raw=true)
+You can create multiple config files and switch between them:
 
-![WI5L Sample Dashboard](https://github.com/VA3HDL/hamdashboard/blob/main/examples/WI5L-sample.jpg?raw=true)
+1. Create a new config file (e.g., `public/contest.js`)
+2. Add it as a menu item:
+   ```js
+   ["f3de21", "CONTEST MODE", "contest.js"],
+   ```
+3. Clicking that menu item loads the new configuration
+4. A **PREVIOUS** button automatically appears to go back
 
-![WX9WTF Sample Dashboard](https://github.com/VA3HDL/hamdashboard/blob/main/examples/WX9WTF-sample.jpg?raw=true)
+You can also load a config directly via URL:
+```
+http://localhost:5173/?config=contest.js
+```
 
-### Dual menu example
+---
 
-![Dual side Menu Sample Dashboard](https://github.com/VA3HDL/hamdashboard/blob/main/examples/DualMenu.png?raw=true)
+## Tile Source Types
 
-### Sources display example
+| Prefix          | Example                                      | Description                          |
+|-----------------|----------------------------------------------|--------------------------------------|
+| *(none)*        | `https://example.com/image.gif`              | Regular image (auto-refreshing)      |
+| `invert\|`      | `invert\|https://example.com/dark-image.png` | Image with colors inverted           |
+| `iframe\|`      | `iframe\|https://example.com/page`           | Embedded website                     |
+| `iframedark\|`  | `iframedark\|https://example.com/page`       | Embedded website with dark background |
+| `dark\|`        | `dark\|https://example.com/page`             | Website with dark theme applied      |
+| `weather\|`     | `weather\|STATION\|APIKEY\|e`                | Weather Underground widget           |
 
-![Sources display example](https://github.com/VA3HDL/hamdashboard/blob/main/examples/sources.png?raw=true)
+**Video files** (`.mp4`, `.webm`, `.ogg`) are automatically detected and played as video.
+
+---
+
+## Legacy HTML Version
+
+The original single-file HTML version is still included at `legacy/hamdash.html`. It works by simply opening the file in a browser — no Node.js required. However, it does not include the newer features like the weather widget, RSS ticker, or settings page.
+
+---
+
+## Troubleshooting
+
+### "node: command not found" or "'node' is not recognized"
+
+Node.js is not installed. Download it from [nodejs.org](https://nodejs.org/) and install the LTS version.
+
+### The dashboard opens but shows "Loading Dashboard..."
+
+This usually means the config file has a syntax error. Open your browser's Developer Tools (press `F12`), go to the Console tab, and look for error messages. Common issues:
+- Missing comma at the end of a line in `config.js`
+- Invalid JSON in `config.json`
+
+### Images aren't loading
+
+- Check that the image URLs are accessible in your browser
+- Some image sources block embedding (CORS). Try a different source.
+- For local network sources (like Pi-Star), make sure you're on the same network.
+
+### Weather tile shows "Error" or no data
+
+- Verify your Weather Underground API key is valid
+- Check that the station ID exists on [wunderground.com](https://www.wunderground.com)
+- The free API key has a limit of 1,500 calls/day
+
+### Port already in use
+
+If you see "Port 5173 is already in use," either:
+- Close the other application using that port, or
+- Use a different port: `.\start.ps1 -Port 8080` or `./start.sh --port 8080`
+
+### Permission denied on macOS/Linux
+
+Run `chmod +x start.sh` to make the script executable.
+
+---
+
+## For Developers
+
+### Build Commands
+
+| Command          | Description                                |
+|------------------|--------------------------------------------|
+| `npm run dev`    | Start development server with hot reload   |
+| `npm run build`  | Build for production (output in `dist/`)   |
+| `npm run preview`| Preview the production build locally       |
+| `npm run lint`   | Run ESLint code linting                    |
+
+### Tech Stack
+
+- **React 19** + **TypeScript** — UI framework
+- **Vite** — Build tool and dev server
+- **Tailwind CSS 4** — Styling
+- **No backend required** — Everything runs in the browser
+
+### Project Structure
+
+```
+hamdashboard/
+├── public/              # Static files & config
+│   ├── config.js        # Default JS config (edit this!)
+│   ├── config.json      # Default JSON config (alternative)
+│   └── satellite.js     # Example satellite tracking config
+├── src/
+│   ├── HamDashApp.tsx   # Main app component
+│   ├── components/      # UI components
+│   │   ├── Dashboard/   # Grid layout
+│   │   ├── Menu/        # Side menus & overlay
+│   │   ├── Settings/    # Setup page
+│   │   ├── Tile/        # Individual tile
+│   │   ├── TopBar/      # Top header bar
+│   │   ├── RssTicker/   # RSS news ticker
+│   │   └── FullScreenView/ # Full-screen image view
+│   ├── config/          # Config loading & types
+│   ├── modules/         # Content renderers
+│   │   ├── ImageModule  # Image display
+│   │   ├── VideoModule  # Video player
+│   │   ├── WeatherModule # Weather Underground widget
+│   │   └── WebContentModule # Iframe content
+│   ├── hooks/           # React hooks
+│   └── utils/           # Helper functions
+├── legacy/              # Original single-file HTML version
+├── examples/            # Screenshot examples
+├── start.ps1            # Windows launcher script
+├── start.sh             # macOS/Linux launcher script
+└── package.json         # Project dependencies
+```
+
+---
+
+## License
+
+MIT — See [LICENSE](LICENSE) for details.
+
+Based on the original [VA3HDL Ham Radio Dashboard](https://github.com/VA3HDL/hamdashboard).

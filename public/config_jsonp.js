@@ -1,7 +1,7 @@
-{
+window.hamdashConfig = {
   "disableSetup": false,
   "disableLdCfg": false,
-  "topBarCenterText": "VA3HDL - FN04ga - JSON",
+  "topBarCenterText": "VA3HDL-FN04ga-JsonP",
   "layout_cols": 4,
   "layout_rows": 3,
   "aURL": [
@@ -27,11 +27,11 @@
     ["LIGHTNING LOCAL", "https://www.blitzortung.org/en/Images/image_b_ny.png", 10600],
     ["YOUTUBE EXAMPLE", "iframe|https://www.youtube.com/embed/fzPFaXAV_2Y?autoplay=1&mute=1", 30400],
     ["WEBSITE EXAMPLE", "iframe|https://globe.adsbexchange.com/?airport=YYZ", 60700],
-    ["WEATHER (WU)", "weather|KPAUPPER32|YOUR_API_KEY_HERE|e", 300000],
+    ["VIDEO EXAMPLE", "https://himawari8.nict.go.jp/movie/720/20240611_pifd.mp4", 60900],
     ["HF PROPAGATION", "https://www.hamqsl.com/solar101vhf.php", 10800]
   ],  
   "aRSS": [
     ["https://www.amsat.org/feed/", 60],
     ["https://daily.hamweekly.com/atom.xml", 120]
   ]
-}
+};
