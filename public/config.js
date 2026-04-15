@@ -105,7 +105,7 @@ var aIMG = [
     "https://www.cpc.ncep.noaa.gov/products/stratosphere/uv_index/uvi_map.gif",
     "iframe|https://earth.nullschool.net/#current/wind/surface/level/orthographic=-75.05,39.77,17847",
     "invert|https://s.w-x.co/staticmaps/wu/wxtype/county_loc/bgm/animate.png",
-    "weather|KPAUPPER32|b4a92c2b28844558a92c2b28841558e0|e"
+    "weather|KPAUPPER32|__WU_API_KEY__|e"
   ],
   [
     "SATELLITE CONUS",

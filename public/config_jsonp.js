@@ -18,7 +18,7 @@ window.hamdashConfig = {
   ],
   "aIMG": [
     ["RADAR", ["https://radar.weather.gov/ridge/standard/CONUS_loop.gif", "https://radar.weather.gov/ridge/standard/KDIX_loop.gif"], 11200],
-    ["FORCAST", ["https://www.wpc.ncep.noaa.gov/noaa/noaa.gif", "https://www.cpc.ncep.noaa.gov/products/stratosphere/uv_index/uvi_map.gif", "iframe|https://earth.nullschool.net/#current/wind/surface/level/orthographic=-75.05,39.77,17847", "invert|https://s.w-x.co/staticmaps/wu/wxtype/county_loc/bgm/animate.png", "weather|KPAUPPER32|b4a92c2b28844558a92c2b28841558e0|e"], 10000],
+    ["FORCAST", ["https://www.wpc.ncep.noaa.gov/noaa/noaa.gif", "https://www.cpc.ncep.noaa.gov/products/stratosphere/uv_index/uvi_map.gif", "iframe|https://earth.nullschool.net/#current/wind/surface/level/orthographic=-75.05,39.77,17847", "invert|https://s.w-x.co/staticmaps/wu/wxtype/county_loc/bgm/animate.png", "weather|KPAUPPER32|__WU_API_KEY__|e"], 10000],
     ["SATELLITE CONUS", ["https://cdn.star.nesdis.noaa.gov/GOES16/ABI/CONUS/GEOCOLOR/GOES16-CONUS-GEOCOLOR-625x375.gif"], 11000],
     ["SATELLITE LOCAL", ["https://cdn.star.nesdis.noaa.gov/GOES16/ABI/SECTOR/ne/GEOCOLOR/GOES16-NE-GEOCOLOR-600x600.gif"], 10100],
     ["LIGHTNING", ["https://images.lightningmaps.org/blitzortung/america/index.php?animation=usa", "https://www.blitzortung.org/en/Images/image_b_ny.png"], 10200],
