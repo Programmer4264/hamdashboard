@@ -101,7 +101,7 @@ var aIMG = [
     "https://www.mash4077tv.com/images/misc/spotlight/085_the_gun.jpg"
   ],
   [
-    "FORCAST",
+    "FORECAST",
     "https://www.wpc.ncep.noaa.gov/noaa/noaa.gif",
     "https://www.cpc.ncep.noaa.gov/products/stratosphere/uv_index/uvi_map.gif",
     "iframe|https://earth.nullschool.net/#current/wind/surface/level/orthographic=-74.46,39.91,17847/loc=-75.052,39.981",
@@ -127,6 +127,7 @@ var aIMG = [
     "https://www.weather.gov/images/phi/ghwo/ThunderstormWindDay1.jpg",
     "https://www.weather.gov/images/phi/ghwo/SevereThunderstormsDay1.jpg",
     "https://www.weather.gov/images/phi/ghwo/WindDay1.jpg"
+   
   ],
   [
     "AIR TRAFFIC",
@@ -175,18 +176,18 @@ var aIMG = [
 
 // Image rotation intervals in milliseconds per tile
 var tileDelay = [
-  11200,
   10000,
-  11000,
-  10100,
-  10200,
-  10500,
-  10300,
-  10600,
-  30400,
-  60700,
-  300000,
-  10800
+  10000,
+  10000,
+  10000,
+  10000,
+  10000,
+  10000,
+  10000,
+  10000,
+  10000,
+  10000,
+  10000
 ];
 
 // CUT END
