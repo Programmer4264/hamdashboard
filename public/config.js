@@ -97,7 +97,8 @@ var aIMG = [
   [
     "RADAR",
     "https://radar.weather.gov/ridge/standard/CONUS_loop.gif",
-    "https://radar.weather.gov/ridge/standard/KDIX_loop.gif"
+    "https://radar.weather.gov/ridge/standard/KDIX_loop.gif",
+    "https://www.mash4077tv.com/images/misc/spotlight/085_the_gun.jpg"
   ],
   [
     "FORCAST",
