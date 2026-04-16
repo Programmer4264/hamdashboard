@@ -1,7 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "hamdashboard",
-  "compatibility_date": "2026-04-16",
+  "name": "thedashboard",
+  "compatibility_date": "2026-04-15",
   "observability": {
     "enabled": true
   },
