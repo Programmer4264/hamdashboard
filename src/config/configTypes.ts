@@ -100,6 +100,10 @@ export interface JsonConfig {
   aImages?: JsonTileItem[];
   aRSS?: RssFeedItem[];
   settingsSource?: string;
+  /** Legacy JS: per-tile rotation delay (parallel array to aIMG) */
+  tileDelay?: number[];
+  /** Legacy JS: per-tile title styling (parallel array to aIMG) */
+  tileStyles?: TitleStyle[];
 }
 
 /** Settings format stored in localStorage */

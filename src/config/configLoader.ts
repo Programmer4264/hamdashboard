@@ -228,11 +228,10 @@ export function processRawConfig(raw: JsonConfig): DashboardConfig {
       );
     } else {
       // Legacy format: [title, url1, url2, ...]
-      const rawAsLegacy = processed as unknown as { tileDelay?: number[]; tileStyles?: TitleStyle[] };
       tiles = parseTilesFromLegacy(
         processed.aIMG as unknown as Array<[string | string[], ...string[]]>,
-        rawAsLegacy.tileDelay,
-        rawAsLegacy.tileStyles
+        processed.tileDelay,
+        processed.tileStyles
       );
     }
   } else if (processed.aImages) {

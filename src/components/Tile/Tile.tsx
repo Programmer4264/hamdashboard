@@ -31,7 +31,7 @@ function getTitlePositionStyle(position: TitlePosition): React.CSSProperties {
 }
 
 /** Resolve effective title style with defaults */
-function resolveStyle(style?: TitleStyle) {
+function resolveStyle(style?: TitleStyle): Required<TitleStyle> {
   return {
     position: style?.position ?? 'bottom-center',
     opacity: style?.opacity ?? 1,
@@ -140,7 +140,7 @@ export function Tile({ config, index, paused, onFullScreen }: TileProps) {
         <div
           className="absolute px-[0.25vw] z-[2]"
           style={{
-            ...getTitlePositionStyle(titleStyle.position as TitlePosition),
+            ...getTitlePositionStyle(titleStyle.position),
             color: titleStyle.fontColor,
             backgroundColor: titleStyle.bgColor,
             opacity: titleStyle.opacity,
