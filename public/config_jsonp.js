@@ -17,7 +17,7 @@ window.hamdashConfig = {
     ["2196F3", "WINDS", "https://earth.nullschool.net/#current/wind/surface/level/orthographic=-78.79,44.09,3000", "1", "R"]
   ],
   "aIMG": [
-    ["RADAR", ["https://radar.weather.gov/ridge/standard/CONUS_loop.gif", "https://radar.weather.gov/ridge/standard/KDIX_loop.gif","/images/085_the_gun.jpg"], 10000],
+    ["RADAR", ["https://radar.weather.gov/ridge/standard/CONUS_loop.gif", "https://radar.weather.gov/ridge/standard/KDIX_loop.gif","./images/085_the_gun.jpg"], 10000],
     ["FORECAST", ["https://www.wpc.ncep.noaa.gov/noaa/noaa.gif", "https://www.cpc.ncep.noaa.gov/products/stratosphere/uv_index/uvi_map.gif", "iframe|https://earth.nullschool.net/#current/wind/surface/level/orthographic=-74.46,39.91,17847/loc=-75.052,39.981", "invert|https://s.w-x.co/staticmaps/wu/wxtype/county_loc/bgm/animate.png", "weather|KPAUPPER32|__WU_API_KEY__|e"], 10000],
     ["SATELLITE CONUS", ["https://cdn.star.nesdis.noaa.gov/GOES16/ABI/CONUS/GEOCOLOR/GOES16-CONUS-GEOCOLOR-625x375.gif"], 10000],
     ["SATELLITE LOCAL", ["https://cdn.star.nesdis.noaa.gov/GOES16/ABI/SECTOR/ne/GEOCOLOR/GOES16-NE-GEOCOLOR-600x600.gif"], 10000],
