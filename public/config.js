@@ -195,17 +195,17 @@ var tileDelay = [
 // Omit or use {} for default styling. Only tiles that need customization need entries.
 /var tileStyles = [
 { "position": "top-center", "opacity": 0.8, "fontColor": "#ffffff", "bgColor": "#000000" },
-  {},
-   {},
-  {},
-   {},
-  {},
-   {},
-   {},
-   {},
-   {},
-   {},
-   {}
+  //{},
+ //  {},
+ // {},
+ // {},
+ //{},
+ // {},
+// {},
+// {},
+// {},
+// {},
+// {}
  ];
 
 // CUT END
