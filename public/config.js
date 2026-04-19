@@ -18,7 +18,7 @@ var aURL = [
   [
     "2196F3",
     "The Adventure",
-    "https://www.Bleattler.com",
+    "https://Bleattler.com",
     "1.7",
     "L"
   ],
