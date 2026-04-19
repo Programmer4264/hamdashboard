@@ -82,6 +82,7 @@ var tileDelay = [
 
 var aRSS = [
   ["https://weather.gc.ca/rss/battleboard/onrm28_e.xml", 60],
+  ["https://daily.hamweekly.com/atom.xml", 120],
 ];
 
 // CUT END
