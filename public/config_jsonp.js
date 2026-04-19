@@ -6,7 +6,7 @@ window.hamdashConfig = {
   "layout_rows": 3,
   "aURL": [
     ["f3de21", "SATS", "satellite.js", "1", "L"],
-    ["2196F3", "The Adventure", "https://www.Bleattler.com", "1.7", "L"],
+    ["2196F3", "The Adventure", "https://Bleattler.com", "1.7", "L"],
     ["2196F3", "CONTEST", "https://www.contestcalendar.com/fivewkcal.html", "1", "L"],
     ["2196F3", "APRS", "https://aprs.fi/#!lat=39.83&lng=-75.4155", "1", "L"],
     ["2196F3", "LIGHTNING", "https://map.blitzortung.org/#3.87/36.5/-89.41", "1", "R"],
