@@ -163,8 +163,7 @@ var aIMG = [
     "https://www.heavens-above.com/orbitdisplay.aspx?icon=iss&width=600&height=300&mode=M&satid=25544"
   ],
   [
-     "PROPAGATION",
-    "https://www.timeanddate.com/scripts/sunmap.php?iso=now",
+    "PROPAGATION",
     "https://www.tvcomm.co.uk/g7izu/Autosave/NA_ES_AutoSave.JPG",
     "https://services.swpc.noaa.gov/images/d-rap/global.png",
     "https://www.tvcomm.co.uk/g7izu/Autosave/HF_ZERO1_AutoSave.JPG",
@@ -172,7 +171,7 @@ var aIMG = [
     "https://www.hamqsl.com/solar101vhf.php",
     "https://www.hamqsl.com/solar100sc.php",
     "https://www.hamqsl.com/solarpich.php"
-  
+  ]
 ];
 
 // Image rotation intervals in milliseconds per tile
