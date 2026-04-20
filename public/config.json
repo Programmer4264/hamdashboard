@@ -141,7 +141,7 @@
     ],
     [
       "GREY LINE",
-      ["https://www.timeanddate.com/scripts/sunmap.php?iso=now"],
+      "https://www.timeanddate.com/scripts/sunmap.php?iso=now",
       60700
     ],
     [
@@ -155,7 +155,7 @@
       10000
     ],
     [
-      "PROPAGATION",
+      "PROPAGATION AND GREY LINE",
       [
         "https://www.tvcomm.co.uk/g7izu/Autosave/NA_ES_AutoSave.JPG",
         "https://services.swpc.noaa.gov/images/d-rap/global.png",
