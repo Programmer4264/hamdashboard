@@ -6,7 +6,7 @@ window.hamdashConfig = {
   "layout_rows": 3,
   "aURL": [
     ["f3de21", "SATS", "satellite.js", "1", "L"],
-    ["2196F3", "The Adventure", "https://Bleattler.com", "1.7", "L"],
+    ["2196F3", "The Adventure", "https://www.Bleattler.com", "1.7", "L"],
     ["2196F3", "CONTEST", "https://www.contestcalendar.com/fivewkcal.html", "1", "L"],
     ["2196F3", "APRS", "https://aprs.fi/#!lat=39.83&lng=-75.4155", "1", "L"],
     ["2196F3", "LIGHTNING", "https://map.blitzortung.org/#3.87/36.5/-89.41", "1", "R"],
@@ -26,7 +26,7 @@ window.hamdashConfig = {
     ["AIR TRAFFIC", ["iframe|https://globe.adsbexchange.com/?airport=PHL", "iframe|https://globe.adsbexchange.com/?airport=EWR"], 10000],
     ["TRAFFIC CAMS I-95 SEPA", ["https://511pa.com/map/Cctv/3209--10?t=1719108080", "https://511pa.com/map/Cctv/3208--10?t=1719108270", "https://511pa.com/map/Cctv/2642--10?t=1719108330", "https://511pa.com/map/Cctv/2823--10?t=1719108390", "https://511pa.com/map/Cctv/3567--10?t=1719108440", "https://511pa.com/map/Cctv/2848--10?t=1719108490", "https://www.511pa.com/map/Cctv/2846--10?t=1730241450"], 10000],
     ["BOREALIS", ["https://services.swpc.noaa.gov/images/aurora-forecast-northern-hemisphere.jpg", "https://services.swpc.noaa.gov/images/swx-overview-large.gif", "https://services.swpc.noaa.gov/images/geospace/geospace_7_day.png", "https://services.swpc.noaa.gov/images/notifications-in-effect-timeline.png"], 10000],
-    ["GREY LINE", [ "https://www.timeanddate.com/scripts/sunmap.php?iso=now"], 60700],
+    ["GREY LINE", ["https://www.timeanddate.com/scripts/sunmap.php?iso=now"], 60700],
     ["ISS, HUBBLE & ACS3", ["https://www.heavens-above.com/orbitdisplay.aspx?icon=default&width=600&height=300&mode=M&satid=59588", "https://www.heavens-above.com/orbitdisplay.aspx?icon=default&width=600&height=300&mode=M&satid=20580", "https://www.heavens-above.com/orbitdisplay.aspx?icon=default&width=600&height=300&mode=M&satid=44909", "https://www.heavens-above.com/orbitdisplay.aspx?icon=iss&width=600&height=300&mode=M&satid=25544"], 10000],
     ["PROPAGATION", ["https://www.tvcomm.co.uk/g7izu/Autosave/NA_ES_AutoSave.JPG", "https://services.swpc.noaa.gov/images/d-rap/global.png", "https://www.tvcomm.co.uk/g7izu/Autosave/HF_ZERO1_AutoSave.JPG", "https://www.tvcomm.co.uk/g7izu/Autosave/ATL_HF10_AutoSave.JPG", "https://www.hamqsl.com/solar101vhf.php", "https://www.hamqsl.com/solar100sc.php", "https://www.hamqsl.com/solarpich.php"], 10000]
   ],
