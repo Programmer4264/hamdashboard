@@ -163,7 +163,6 @@ var aIMG = [
   ],
   [
      "PROPAGATION",
-      [
     "https://www.timeanddate.com/scripts/sunmap.php?iso=now",
     "https://www.tvcomm.co.uk/g7izu/Autosave/NA_ES_AutoSave.JPG",
     "https://services.swpc.noaa.gov/images/d-rap/global.png",
@@ -172,7 +171,7 @@ var aIMG = [
     "https://www.hamqsl.com/solar101vhf.php",
     "https://www.hamqsl.com/solar100sc.php",
     "https://www.hamqsl.com/solarpich.php"
-  ]
+  
 ];
 
 // Image rotation intervals in milliseconds per tile
