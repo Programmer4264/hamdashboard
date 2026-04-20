@@ -145,15 +145,15 @@ var aIMG = [
     "https://www.511pa.com/map/Cctv/2846--10?t=1730241450"
   ],
   [
+    "ARMEGEDEON",
+    "youtube|t_unhCzbolY"
+  ],
+  [
     "BOREALIS",
     "https://services.swpc.noaa.gov/images/aurora-forecast-northern-hemisphere.jpg",
     "https://services.swpc.noaa.gov/images/swx-overview-large.gif",
     "https://services.swpc.noaa.gov/images/geospace/geospace_7_day.png",
     "https://services.swpc.noaa.gov/images/notifications-in-effect-timeline.png"
-  ],
-  [
-    "ARMEGEDEON",
-    "youtube|t_unhCzbolY"
   ],
   [
     "ISS, HUBBLE & ACS3",
