@@ -112,7 +112,6 @@
       [
         "iframe|https://globe.adsbexchange.com/?airport=PHL",
         "iframe|https://globe.adsbexchange.com/?airport=EWR"
-     
       ],
       10000
     ],
@@ -141,9 +140,7 @@
     ],
     [
       "GREY LINE",
-      [
-     "https://www.timeanddate.com/scripts/sunmap.php?iso=now"
-      ], 
+      ["https://www.timeanddate.com/scripts/sunmap.php?iso=now"],
       60700
     ],
     [
@@ -157,7 +154,7 @@
       10000
     ],
     [
-      "PROPAGATION AND GREY LINE",
+      "PROPAGATION",
       [
         "https://www.tvcomm.co.uk/g7izu/Autosave/NA_ES_AutoSave.JPG",
         "https://services.swpc.noaa.gov/images/d-rap/global.png",
