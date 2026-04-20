@@ -152,7 +152,8 @@ var aIMG = [
     "https://services.swpc.noaa.gov/images/notifications-in-effect-timeline.png"
   ],
   [
-    "GREY LINE","https://www.timeanddate.com/scripts/sunmap.php?iso=now"
+    "GREY LINE",
+    "https://www.timeanddate.com/scripts/sunmap.php?iso=now"
   ],
   [
     "ISS, HUBBLE & ACS3",
