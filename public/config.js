@@ -145,7 +145,7 @@ var aIMG = [
     "https://www.511pa.com/map/Cctv/2846--10?t=1730241450"
   ],
   [
-    "ARMEGEDEON",
+    "OTHER WATCHES/WARNINGS",
     "youtube|t_unhCzbolY"
   ],
   [
