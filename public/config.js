@@ -150,8 +150,8 @@ var aIMG = [
     "youtube|Qt59KQ7w8AY",
     "youtube|zpVRx505C9w",
     "youtube|yTqdLGG_HoI",
-    "youtube|rvtygG4n6ew",
-    "https://dashboard.waterdata.usgs.gov/app/nwd/en/"
+    "youtube|rvtygG4n6ew"
+    
   ],
   [
     "BOREALIS",
