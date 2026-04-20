@@ -111,8 +111,8 @@
       "AIR TRAFFIC",
       [
         "iframe|https://globe.adsbexchange.com/?airport=PHL",
-        "iframe|https://globe.adsbexchange.com/?airport=EWR",
-       "iframe|https://www.youtube.com/embed/zpVRx505C9w?si=TJEp4U1DtVgVTsWs"
+        "iframe|https://globe.adsbexchange.com/?airport=EWR"
+     
       ],
       10000
     ],
