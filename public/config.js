@@ -163,7 +163,9 @@ var aIMG = [
     "https://www.heavens-above.com/orbitdisplay.aspx?icon=iss&width=600&height=300&mode=M&satid=25544"
   ],
   [
-    "PROPAGATION",
+     "PROPAGATION AND GREY LINE",
+      [
+    "https://www.timeanddate.com/scripts/sunmap.php?iso=now",
     "https://www.tvcomm.co.uk/g7izu/Autosave/NA_ES_AutoSave.JPG",
     "https://services.swpc.noaa.gov/images/d-rap/global.png",
     "https://www.tvcomm.co.uk/g7izu/Autosave/HF_ZERO1_AutoSave.JPG",
