@@ -152,8 +152,7 @@ var aIMG = [
     "https://services.swpc.noaa.gov/images/notifications-in-effect-timeline.png"
   ],
   [
-    "GREY LINE",
-    "iframe|https://www.youtube.com/embed/zpVRx505C9w?si=TJEp4U1DtVgVTsWs"
+    "GREY LINE","https://www.timeanddate.com/scripts/sunmap.php?iso=now"
   ],
   [
     "ISS, HUBBLE & ACS3",
@@ -163,7 +162,7 @@ var aIMG = [
     "https://www.heavens-above.com/orbitdisplay.aspx?icon=iss&width=600&height=300&mode=M&satid=25544"
   ],
   [
-     "PROPAGATION AND GREY LINE",
+     "PROPAGATION",
       [
     "https://www.timeanddate.com/scripts/sunmap.php?iso=now",
     "https://www.tvcomm.co.uk/g7izu/Autosave/NA_ES_AutoSave.JPG",
