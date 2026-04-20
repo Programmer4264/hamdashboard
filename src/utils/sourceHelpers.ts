@@ -1,5 +1,5 @@
 /**
- * Helpers for parsing tile source URL prefixes (iframe|, iframedark|, invert|, dark|, weather|).
+ * Helpers for parsing tile source URL prefixes (iframe|, iframedark|, invert|, dark|, weather|, youtube|).
  */
 
 const videoExtensions = ['.mp4', '.webm', '.ogg', '.ogv'];
@@ -35,13 +35,18 @@ export function isWeather(src: string): boolean {
   return src.startsWith('weather|');
 }
 
+export function isYouTube(src: string): boolean {
+  return src.startsWith('youtube|');
+}
+
 /** Strip known prefixes and return the clean URL */
 export function cleanSource(src: string): string {
   return src
     .replace('iframedark|', '')
     .replace('iframe|', '')
     .replace('invert|', '')
-    .replace('dark|', '');
+    .replace('dark|', '')
+    .replace('youtube|', '');
 }
 
 /**
@@ -78,6 +83,15 @@ export function parseSource(src: string): ParsedSource {
 
   if (isVideo(src)) {
     return { type: 'video', url: src, invert: false, darkFrame: false };
+  }
+
+  if (isYouTube(src)) {
+    const videoId = src.split('youtube|')[1] ?? '';
+    const safeVideoId = /^[\w-]+$/.test(videoId) ? videoId : '';
+    const embedUrl = safeVideoId
+      ? `https://www.youtube.com/embed/${safeVideoId}?autoplay=1&mute=1`
+      : '';
+    return { type: 'iframe', url: embedUrl, invert: false, darkFrame: false };
   }
 
   if (isFrame(src)) {
