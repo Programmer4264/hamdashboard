@@ -131,7 +131,9 @@ var aIMG = [
     "https://www.weather.gov/images/phi/ghwo/LightningDay1.jpg",
     "https://www.weather.gov/images/phi/ghwo/ThunderstormWindDay1.jpg",
     "https://www.weather.gov/images/phi/ghwo/SevereThunderstormsDay1.jpg",
-    "https://www.weather.gov/images/phi/ghwo/WindDay1.jpg"
+    "https://www.weather.gov/images/phi/ghwo/WindDay1.jpg",
+    "https://www.weather.gov/images/phi/ghwo/ExtremeHeatDay1.jpg",
+    "https://www.weather.gov/images/phi/ghwo/ExcessiveRainfallDay1.jpg"
    
   ],
   [
