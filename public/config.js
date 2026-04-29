@@ -83,7 +83,7 @@ var aURL = [
 // Feed items
 var aRSS = [
   [
-    "https://www.amsat.org/feed/",
+    "https://www.spc.noaa.gov/products/spcwwrss.xml",
     60
   ],
   [
