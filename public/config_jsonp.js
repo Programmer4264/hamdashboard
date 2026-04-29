@@ -33,5 +33,6 @@ window.hamdashConfig = {
   "aRSS": [
     ["https://www.amsat.org/feed/", 60],
     ["https://daily.hamweekly.com/atom.xml", 120]
+    ["https://www.space.com/feeds.xml", 60]
   ]
 };
