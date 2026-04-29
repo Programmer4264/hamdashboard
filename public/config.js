@@ -147,10 +147,10 @@ var aIMG = [
   [
     "OTHER WATCHES/WARNINGS",
     "youtube|t_unhCzbolY",  //ASTEROIDS
-    "youtube|1mNFzt-xH7w",
-    "youtube|zpVRx505C9w",
-    "youtube|yTqdLGG_HoI",
-    "youtube|rvtygG4n6ew"
+    "youtube|1mNFzt-xH7w",  //lower 48 earthquake monitor
+    "youtube|zpVRx505C9w",  //Chino hill EQ monitor
+    "youtube|yTqdLGG_HoI",  // world EQ Monitor
+    "youtube|rvtygG4n6ew"   // global quake
     
   ],
   [
