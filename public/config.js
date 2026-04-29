@@ -90,6 +90,7 @@ var aRSS = [
     "https://daily.hamweekly.com/atom.xml",
     120
   ]
+  ["https://www.space.com/feeds.xml", 60]
 ];
 
 // Dashboard Tiles items
