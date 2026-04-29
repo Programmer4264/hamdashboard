@@ -146,7 +146,7 @@ var aIMG = [
   ],
   [
     "OTHER WATCHES/WARNINGS",
-    "youtube|t_unhCzbolY",
+    "youtube|t_unhCzbolY",  //ASTEROIDS
     "youtube|1mNFzt-xH7w",
     "youtube|zpVRx505C9w",
     "youtube|yTqdLGG_HoI",
