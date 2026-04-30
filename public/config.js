@@ -87,10 +87,6 @@ var aRSS = [
     60
   ],
   [
-    "https://www.arnewsline.org/?format=rss",
-    60
-  ],
-  [
     "https://www.nasa.gov/missions/station/feed/",
     60
   ],
