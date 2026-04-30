@@ -158,7 +158,7 @@ var aIMG = [
     "youtube|zpVRx505C9w",  //Chino hill EQ monitor
     "youtube|yTqdLGG_HoI",  // world EQ Monitor
     "youtube|rvtygG4n6ew",   // global quake
-    
+    "https://www.spc.noaa.gov/products/watch/validww.png" //TORNADO
     
   ],
   [
