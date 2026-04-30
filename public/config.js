@@ -158,7 +158,7 @@ var aIMG = [
     "youtube|zpVRx505C9w",  //Chino hill EQ monitor
     "youtube|yTqdLGG_HoI",  // world EQ Monitor
     "youtube|rvtygG4n6ew",   // global quake
-    "https://rsoe-edis.org/eventMap" //world disaster map
+    "iframe|https://rsoe-edis.org/eventMap" //world disaster map
     
   ],
   [
