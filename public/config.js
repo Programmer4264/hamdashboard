@@ -87,7 +87,7 @@ var aRSS = [
     60
   ],
   [
-    "https://daily.hamweekly.com/atom.xml",
+    "https://www.arnewsline.org/?format=rss",
     60
   ],
   [
