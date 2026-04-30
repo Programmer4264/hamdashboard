@@ -88,7 +88,7 @@ var aRSS = [
   ],
   [
     "https://daily.hamweekly.com/atom.xml",
-    120
+    60
   ],
   [
     "https://www.nasa.gov/missions/station/feed/",
