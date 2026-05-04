@@ -110,6 +110,7 @@ var aIMG = [
     "https://www.cpc.ncep.noaa.gov/products/stratosphere/uv_index/uvi_map.gif",
     "iframe|https://earth.nullschool.net/#current/wind/surface/level/orthographic=-74.46,39.91,17847/loc=-75.052,39.981",
     "invert|https://s.w-x.co/staticmaps/wu/wxtype/county_loc/bgm/animate.png",
+    "https://aprs.fi/#!z=12&call=a%2FKC3ROB-13&timerange=3600&tail=3600",
     "weather|KPAUPPER32|__WU_API_KEY__|e"
   ],
   [
