@@ -193,7 +193,7 @@ var aIMG = [
 // Image rotation intervals in milliseconds per tile
 var tileDelay = [
   10000,
-  10000,
+  60700,
   10000,
   10000,
   10000,
