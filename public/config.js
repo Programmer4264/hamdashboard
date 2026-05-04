@@ -106,7 +106,7 @@ var aIMG = [
   ],
   [
     "FORECAST",
-     "https://ws4000.rob-5b5.workers.dev",
+     "https://ws4000.rob-5b5.workers.dev",  //AS4000
     "https://www.wpc.ncep.noaa.gov/noaa/noaa.gif",
     "https://www.cpc.ncep.noaa.gov/products/stratosphere/uv_index/uvi_map.gif",
     "iframe|https://earth.nullschool.net/#current/wind/surface/level/orthographic=-74.46,39.91,17847/loc=-75.052,39.981",
