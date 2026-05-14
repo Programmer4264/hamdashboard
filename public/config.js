@@ -163,7 +163,7 @@ var aIMG = [
     "youtube|5KkmVqY_FJ4" //WX Rundown
   ],
   [
-    "BOREALIS",
+    "SPACE WEATHER",
     "https://services.swpc.noaa.gov/experimental/images/aurora_dashboard/tonights_static_viewline_forecast.png",
     "https://services.swpc.noaa.gov/experimental/images/aurora_dashboard/tomorrow_nights_static_viewline_forecast.png",
     "https://services.swpc.noaa.gov/images/animations/ovation/north/latest.jpg",
@@ -171,7 +171,9 @@ var aIMG = [
     "https://services.swpc.noaa.gov/images/aurora-forecast-northern-hemisphere.jpg",
     "https://services.swpc.noaa.gov/images/swx-overview-large.gif",
     "https://services.swpc.noaa.gov/images/geospace/geospace_7_day.png",
-    "https://services.swpc.noaa.gov/images/notifications-in-effect-timeline.png"
+    "https://services.swpc.noaa.gov/images/notifications-in-effect-timeline.png",
+    "https://services.swpc.noaa.gov/images/animations/enlil/latest.jpg",
+    "https://services.swpc.noaa.gov/images/animations/glotec/100cus_urt/latest.png"
   ],
   [
     "ISS, HUBBLE & ACS3",
@@ -187,6 +189,7 @@ var aIMG = [
     "https://services.swpc.noaa.gov/images/d-rap/global.png",
     "https://www.tvcomm.co.uk/g7izu/Autosave/HF_ZERO1_AutoSave.JPG",
     "https://www.tvcomm.co.uk/g7izu/Autosave/ATL_HF10_AutoSave.JPG",
+    "https://services.swpc.noaa.gov/images/swx-overview-small.gif"
     "https://www.hamqsl.com/solar101vhf.php",
     "https://www.hamqsl.com/solar100sc.php",
     "https://www.hamqsl.com/solarpich.php"
