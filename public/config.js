@@ -140,8 +140,8 @@ var aIMG = [
   [
     "AIR TRAFFIC",
     "iframe|https://globe.adsbexchange.com/?airport=PHL",
-    "iframe|https://globe.adsbexchange.com/?airport=EWR",
-    "iframe|https://aprs.fi/#!lat=39.83&lng=-75.4155"
+    "iframe|https://globe.adsbexchange.com/?airport=EWR"
+    
   ],
   [
     "TRAFFIC CAMS I-95 SEPA",
