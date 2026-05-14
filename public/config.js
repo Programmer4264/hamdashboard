@@ -164,6 +164,10 @@ var aIMG = [
   ],
   [
     "BOREALIS",
+    "https://services.swpc.noaa.gov/experimental/images/aurora_dashboard/tonights_static_viewline_forecast.png",
+    "https://services.swpc.noaa.gov/experimental/images/aurora_dashboard/tomorrow_nights_static_viewline_forecast.png",
+    "https://services.swpc.noaa.gov/images/animations/ovation/north/latest.jpg",
+    "https://services.swpc.noaa.gov/images/animations/ovation/north/latest.jpg",
     "https://services.swpc.noaa.gov/images/aurora-forecast-northern-hemisphere.jpg",
     "https://services.swpc.noaa.gov/images/swx-overview-large.gif",
     "https://services.swpc.noaa.gov/images/geospace/geospace_7_day.png",
