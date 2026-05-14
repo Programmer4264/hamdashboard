@@ -109,7 +109,7 @@ var aIMG = [
      "iframe|https://ws4000.rob-5b5.workers.dev",  //AS4000
     "https://www.wpc.ncep.noaa.gov/noaa/noaa.gif",
     "https://www.cpc.ncep.noaa.gov/products/stratosphere/uv_index/uvi_map.gif",
-    "iframe|https://earth.nullschool.net/#current/wind/surface/level/orthographic=-74.46,39.91,17847/loc=-75.052,39.981",
+    "iframe|https://earth.nullschool.net/#current/wind/surface/level/orthographic=-91.00,18.02,573",
     "invert|https://s.w-x.co/staticmaps/wu/wxtype/county_loc/bgm/animate.png",
     "weather|KPAUPPER32|__WU_API_KEY__|e"
   ],
