@@ -189,7 +189,7 @@ var aIMG = [
     "https://services.swpc.noaa.gov/images/d-rap/global.png",
     "https://www.tvcomm.co.uk/g7izu/Autosave/HF_ZERO1_AutoSave.JPG",
     "https://www.tvcomm.co.uk/g7izu/Autosave/ATL_HF10_AutoSave.JPG",
-    "https://services.swpc.noaa.gov/images/swx-overview-small.gif"
+    "https://services.swpc.noaa.gov/images/swx-overview-small.gif",
     "https://www.hamqsl.com/solar101vhf.php",
     "https://www.hamqsl.com/solar100sc.php",
     "https://www.hamqsl.com/solarpich.php"
