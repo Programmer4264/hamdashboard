@@ -100,8 +100,9 @@ var aRSS = [
 var aIMG = [
   [
     "RADAR",
-    "https://radar.weather.gov/ridge/standard/CONUS_loop.gif",
+    "https://radar.weather.gov/ridge/standard/CONUS-LARGE_loop.gif",
     "https://radar.weather.gov/ridge/standard/KDIX_loop.gif",
+    "https://radar.weather.gov/ridge/standard/base_velocity/KDIX_loop.gif",
     "/085_the_gun.jpg"
   ],
   [
