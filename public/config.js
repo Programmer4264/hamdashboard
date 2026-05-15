@@ -157,7 +157,7 @@ var aIMG = [
   ],
   [
     "OTHER WATCHES/WARNINGS",
-    "iframe|https://disasteralert.pdc.org/disasteralert/",
+    // "iframe|https://disasteralert.pdc.org/disasteralert/",
     "youtube|t_unhCzbolY",  //ASTEROIDS
     "youtube|9NJ1zF2zxOg", //Kilauea
     "youtube|iTZetNVHBos",  //lower 48 earthquake monitor
