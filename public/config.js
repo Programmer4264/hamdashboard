@@ -159,7 +159,7 @@ var aIMG = [
     "OTHER WATCHES/WARNINGS",
     "youtube|t_unhCzbolY",  //ASTEROIDS
     "youtube|9NJ1zF2zxOg", //Kilauea
-    "youtube|xJEwG1twbbQ",  //lower 48 earthquake monitor
+    "youtube|iTZetNVHBos",  //lower 48 earthquake monitor
     "youtube|zpVRx505C9w",  //Chino hill EQ monitor
     "youtube|yTqdLGG_HoI",  // world EQ Monitor
     "youtube|rvtygG4n6ew",   // global quake
