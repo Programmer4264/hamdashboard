@@ -107,7 +107,7 @@ var aIMG = [
   ],
   [
     "FORECAST",
-    "https://www.spc.noaa.gov/exper/mesoanalysis/new/viewsector.php?sector=17",
+    "iframe|https://www.spc.noaa.gov/exper/mesoanalysis/new/viewsector.php?sector=17",
      "iframe|https://ws4000.rob-5b5.workers.dev",  //AS4000
     "https://www.wpc.ncep.noaa.gov/noaa/noaa.gif",
     "https://www.cpc.ncep.noaa.gov/products/stratosphere/uv_index/uvi_map.gif",
