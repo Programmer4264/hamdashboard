@@ -107,6 +107,7 @@ var aIMG = [
   ],
   [
     "FORECAST",
+     "iframe|https://web.weatherwise.app/#map=7.62/40.576/-77.729",
      "iframe|https://ws4000.rob-5b5.workers.dev",  //AS4000
     "https://www.wpc.ncep.noaa.gov/noaa/noaa.gif",
     "https://www.cpc.ncep.noaa.gov/products/stratosphere/uv_index/uvi_map.gif",
