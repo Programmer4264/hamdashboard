@@ -107,7 +107,7 @@ var aIMG = [
   ],
   [
     "FORECAST",
-    "iframe|https://web.weatherwise.app",
+    "https://web.weatherwise.app",
     "iframe|https://ws4000.rob-5b5.workers.dev",  //AS4000
     "weather|KPAUPPER32|__WU_API_KEY__|e", // home weather station
     "https://www.wpc.ncep.noaa.gov/noaa/noaa.gif",
