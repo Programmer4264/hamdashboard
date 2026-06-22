@@ -163,7 +163,7 @@ var aIMG = [
     // "iframe|https://disasteralert.pdc.org/disasteralert/",
     "youtube|t_unhCzbolY",  //ASTEROIDS
     "youtube|9NJ1zF2zxOg", //Kilauea
-    "youtube|iTZetNVHBos",  //lower 48 earthquake monitor
+    "youtube|QVcLzZhgqlE",  //lower 48 earthquake monitor
     "youtube|zpVRx505C9w",  //Chino hill EQ monitor
     "youtube|yTqdLGG_HoI",  // world EQ Monitor
     "youtube|rvtygG4n6ew",   // global quake
