@@ -114,7 +114,7 @@ var aIMG = [
     "https://www.cpc.ncep.noaa.gov/products/stratosphere/uv_index/uvi_map.gif",
     "invert|https://s.w-x.co/staticmaps/wu/wxtype/county_loc/bgm/animate.png",
     "iframe|https://earth.nullschool.net/#current/wind/surface/level/orthographic=-73.55,39.89,3176/loc=-76.006,39.629",
-    "iframe|https://www.spc.noaa.gov/exper/mesoanalysis/new/viewsector.php?sector=16&parm=pmsl&underlay=1&source=1"
+    //"iframe|https://www.spc.noaa.gov/exper/mesoanalysis/new/viewsector.php?sector=16&parm=pmsl&underlay=1&source=1"
     
   ],
   [
@@ -143,12 +143,12 @@ var aIMG = [
    [
     "OTHER WATCHES/WARNINGS",
     // "iframe|https://disasteralert.pdc.org/disasteralert/",
-    "youtube|t_unhCzbolY",  //ASTEROIDS
+   // "youtube|t_unhCzbolY",  //ASTEROIDS
     "youtube|9NJ1zF2zxOg", //Kilauea
     "youtube|QVcLzZhgqlE",  //lower 48 earthquake monitor
     "youtube|zpVRx505C9w",  //Chino hill EQ monitor
     "youtube|yTqdLGG_HoI",  // world EQ Monitor
-    "youtube|rvtygG4n6ew",   // global quake
+    //"youtube|rvtygG4n6ew",   // global quake
     "https://www.spc.noaa.gov/products/watch/validww.png", //TORNADO
     "https://www.spc.noaa.gov/products/outlook/day1otlk_1300.png", //SEVERE WEATHER
     "https://www.weather.gov/wwamap/png/US.png", //SEVERE OUTLOOK
