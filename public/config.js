@@ -157,9 +157,9 @@ var aIMG = [
   [
     "AIR TRAFFIC",
     "iframe|https://globe.adsbexchange.com/?airport=PHL",
-    "iframe|https://globe.adsbexchange.com/?airport=BWI",
-    "iframe|https://globe.adsbexchange.com/?airport=EWR",
-    "iframe|https://globe.adsbexchange.com/?airport=JFK"
+   // "iframe|https://globe.adsbexchange.com/?airport=BWI",
+   // "iframe|https://globe.adsbexchange.com/?airport=EWR",
+   //"iframe|https://globe.adsbexchange.com/?airport=JFK"
     
   ],
   [
