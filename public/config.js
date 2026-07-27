@@ -142,6 +142,7 @@ var aIMG = [
   ],
    [
     "OTHER WATCHES/WARNINGS",
+    "https://wxrundown.com/home",
     "youtube|9NJ1zF2zxOg", //Kilauea
     "youtube|zpVRx505C9w",  //Chino hill EQ monitor
     "youtube|yTqdLGG_HoI",  // world EQ Monitor
