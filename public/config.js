@@ -142,24 +142,21 @@ var aIMG = [
   ],
    [
     "OTHER WATCHES/WARNINGS",
-    // "iframe|https://disasteralert.pdc.org/disasteralert/",
-   // "youtube|t_unhCzbolY",  //ASTEROIDS
     "youtube|9NJ1zF2zxOg", //Kilauea
-    "youtube|QVcLzZhgqlE",  //lower 48 earthquake monitor
     "youtube|zpVRx505C9w",  //Chino hill EQ monitor
     "youtube|yTqdLGG_HoI",  // world EQ Monitor
-    //"youtube|rvtygG4n6ew",   // global quake
     "https://www.spc.noaa.gov/products/watch/validww.png", //TORNADO
     "https://www.spc.noaa.gov/products/outlook/day1otlk_1300.png", //SEVERE WEATHER
     "https://www.weather.gov/wwamap/png/US.png", //SEVERE OUTLOOK
-    "youtube|5KkmVqY_FJ4" //WX Rundown
+    "youtube|5KkmVqY_FJ4", //WX Rundown
+     "youtube|t_unhCzbolY" //Asteroid
   ],
   [
     "AIR TRAFFIC",
     "iframe|https://globe.adsbexchange.com/?airport=PHL",
    // "iframe|https://globe.adsbexchange.com/?airport=BWI",
    // "iframe|https://globe.adsbexchange.com/?airport=EWR",
-   //"iframe|https://globe.adsbexchange.com/?airport=JFK"
+   "iframe|https://globe.adsbexchange.com/?airport=JFK"
     
   ],
   [
