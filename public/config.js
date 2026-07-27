@@ -148,7 +148,7 @@ var aIMG = [
     "https://www.spc.noaa.gov/products/watch/validww.png", //TORNADO
     "https://www.spc.noaa.gov/products/outlook/day1otlk_1300.png", //SEVERE WEATHER
     "https://www.weather.gov/wwamap/png/US.png", //SEVERE OUTLOOK
-    "youtube|5KkmVqY_FJ4", //WX Rundown
+    //"youtube|5KkmVqY_FJ4", //WX Rundown
      "youtube|t_unhCzbolY" //Asteroid
   ],
   [
