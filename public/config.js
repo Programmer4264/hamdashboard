@@ -82,16 +82,21 @@ var aURL = [
 
 // Feed items
 var aRSS = [
+ 
+   [
+     "https://www.Bleattler.com/feed.xml", 
+     60
+   ],
   [
-    "https://www.spc.noaa.gov/products/spcwwrss.xml",
+    "https://www.amsat.org/feed/",
     60
   ],
   [
-    "https://www.nasa.gov/missions/station/feed/",
+    "https://daily.hamweekly.com/atom.xml",
     60
   ],
    [
-    "https://www.noaa.gov/taxonomy/term/68/rss.xml",
+    "https://www.space.com/feeds.xml",
     60
   ]
 ];
