@@ -31,8 +31,9 @@ window.hamdashConfig = {
     ["PROPAGATION", ["https://www.tvcomm.co.uk/g7izu/Autosave/NA_ES_AutoSave.JPG", "https://services.swpc.noaa.gov/images/d-rap/global.png", "https://www.tvcomm.co.uk/g7izu/Autosave/HF_ZERO1_AutoSave.JPG", "https://www.tvcomm.co.uk/g7izu/Autosave/ATL_HF10_AutoSave.JPG", "https://www.hamqsl.com/solar101vhf.php", "https://www.hamqsl.com/solar100sc.php", "https://www.hamqsl.com/solarpich.php"], 10000]
   ],
   "aRSS": [
+    ["https://www.Bleattler.com/feed.xml", 60],
     ["https://www.amsat.org/feed/", 60],
-    ["https://daily.hamweekly.com/atom.xml", 120]
+    ["https://daily.hamweekly.com/atom.xml", 120],
     ["https://www.space.com/feeds.xml", 60]
   ]
 };
